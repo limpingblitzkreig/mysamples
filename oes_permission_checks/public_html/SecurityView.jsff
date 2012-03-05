@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:decorativeBox id="db1">
+        <f:facet name="center">
+          <af:panelGroupLayout id="pgl1">
+            <af:commandButton id="actionCreate"
+                              text="Create User"
+                              disabled="#{!pageFlowScope.oesSecurityBean.hasCreateUserPrivilege}"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="top"/>
+      </af:decorativeBox>
+    </f:facet>
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+  </af:panelStretchLayout>
+</jsp:root>
