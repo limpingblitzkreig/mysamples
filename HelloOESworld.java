@@ -23,7 +23,8 @@ public class HelloOESworld {
       String action = "click";
 
       // Environmental/Context attributes
-
+      Map<String, String> env = new HashMap<String, String>();
+      env.put("l", "London");
       while (true)
       {
          try {
@@ -34,7 +35,7 @@ public class HelloOESworld {
                                 user,
                                 action,
                                 resourceString,
-                                null).decide();
+                                env).decide();
 
             System.out.println("Request: {weblogic, " + action + ", "
                      + resourceString
