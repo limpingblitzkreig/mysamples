@@ -7,7 +7,7 @@
     </data-control-scope>
     <managed-bean>
       <managed-bean-name>oesSecurityBean</managed-bean-name>
-      <managed-bean-class>oracle.iam.examples.adfsecurity.beans.OESSecurityExampleBean</managed-bean-class>
+      <managed-bean-class>oracle.iam.examples.adfsecurity.beans.OESSecurityExamplePEPApi</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
     <view id="TabView">
