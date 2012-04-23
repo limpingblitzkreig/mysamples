@@ -72,6 +72,7 @@
          <string v="JSF"/>
          <string v="ADFc"/>
          <string v="ADF_FACES"/>
+         <string v="HTML"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
