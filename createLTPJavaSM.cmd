@@ -1,0 +1,1 @@
+./oessm/bin/config.cmd -smConfigId LTPJavaSM -prpFileName ./oessm/SMConfigTool/smconfig.java.controlled_LTPJavaSM.prp 
