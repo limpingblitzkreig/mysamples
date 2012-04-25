@@ -1,0 +1,1 @@
+./oessm/bin/config.cmd -smConfigId LAPTOPWebLogicSM -prpFileName ./oessm/SMConfigTool/smconfig.wls.controlled_LAPTOPWLSM.prp -serverLocation C:\Oracle\Middleware\wlserver_10.3

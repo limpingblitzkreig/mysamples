@@ -1,0 +1,34 @@
+<!--
+ Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved. 
+
+   NAME
+     smconfig.wls.controlled.prp 
+
+   DESCRIPTION
+     This file specifies parameters used by SM configuration script (config.sh). 
+     This file is for WLS SM in Controlled Policy Distribution Mode.
+     
+-->
+#  If required parameters is not specified in this file, SM configiration tool will prompt for it
+#  SM name 
+
+oracle.security.jps.runtime.pd.client.sm_name=LAPTOPWebLogicSM
+
+#  Policy dustribution mode. Possible values:
+#   controlled-push - if this mode is set you need to configire Policy Distribution configiration parameters
+
+oracle.security.jps.runtime.pd.client.policyDistributionMode=controlled-push
+
+#  -------- Policy Distributor connectivity information - required for controlled-push distribution mode
+#  Only needed for controlled-push policy distribution mode
+
+oracle.security.jps.runtime.pd.client.RegistrationServerHost=dappiam01.cap.org
+oracle.security.jps.runtime.pd.client.RegistrationServerPort=7002
+
+#---------- ONLY for  WLS SM  -----------------------------
+#  SSL port number for WLS Domain on which WLS SM is installed. Only required for controlled-push and controlled-pull modes 
+#  (if parameter oracle.security.jps.pd.client.sslMode is set to false use non-SSL port)
+
+oracle.security.jps.pd.clientPort=7002
+
+oracle.security.jps.runtime.pd.client.sm_type=wls

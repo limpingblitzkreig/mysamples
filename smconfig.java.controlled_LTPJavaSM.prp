@@ -1,0 +1,29 @@
+<!--
+ Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved. 
+
+   NAME
+     smconfig.java.controlled.prp 
+
+   DESCRIPTION
+     This file specifies parameters used by SM configuration script (config.sh). 
+     This file is for Java SM in Controlled Policy Distribution Mode.  
+
+-->
+#  If required parameters is not specified in this file, SM configiration tool will prompt for it
+#  SM name 
+oracle.security.jps.runtime.pd.client.sm_name=LTPJavaSM
+
+#  Policy dustribution mode is controlled-push
+oracle.security.jps.runtime.pd.client.policyDistributionMode=controlled-push
+
+#  -------- Policy Distributor connectivity information - required for controlled-push distribution mode
+oracle.security.jps.runtime.pd.client.RegistrationServerHost=dappiam01.cap.org
+oracle.security.jps.runtime.pd.client.RegistrationServerPort=7002
+
+# >>>>>>>>>>>>OPTIONAL PARAMETERS<<<<<<<<<<<<<<<<<
+# ------------ Only for Java SM, WS SM, and RMI SM in controlled-push mode --------------------
+#  port to listen for policy distribution. Picked automatically by SM config tool if not specified 
+oracle.security.jps.runtime.pd.client.DistributionServicePort=
+
+oracle.security.jps.runtime.pd.client.sm_type=java
+
