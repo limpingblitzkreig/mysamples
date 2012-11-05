@@ -6,7 +6,7 @@ import java.security.*;
 import oracle.security.jps.openaz.pep.*;
 import org.openliberty.openaz.azapi.pep.*;
 
-public class HelloOESworld {
+public class TestApp {
 
    public static void main(String[] args) {
 
