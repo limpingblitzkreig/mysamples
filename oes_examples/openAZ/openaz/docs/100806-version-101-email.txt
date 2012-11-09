@@ -1,0 +1,191 @@
+
+from:
+http://lists.openliberty.org/pipermail/openaz/2010-August/000078.html
+
+[OpenAz] Version 101: improved logging and tutorial
+Rich.Levinson rich.levinson at oracle.com 
+Thu Aug 5 05:40:16 EDT 2010 
+
+Next message: [OpenAz] OpenAz Conference Call - Thursday August 5, 1 PM ET 
+Messages sorted by: [ date ] [ thread ] [ subject ] [ author ] 
+
+--------------------------------------------------------------------------------
+
+To OpenAz Maillist:
+
+Version 101 of OpenAz has been uploaded, which should provide a 
+straight-forward download, build, and run as will be described below. 
+The instructions below are basically consistent w the previous email for 
+version 99:
+    http://lists.openliberty.org/pipermail/openaz/2010-July/000077.html
+
+however, the instructions below are focused on running the 
+OpenAzTutorial program, which is intended to be the starting point for 
+expanding a broader tutorial.
+
+The main changes in this version are:
+
+   1. The logging has been cleaned up so that log.info now only is used
+      for informatory and not trace info.
+   2. The logging remains based on Apache Commons Logging (JCL):
+        http://commons.apache.org/logging/guide.html
+   3. A brief explanation of logging configuration options is included
+      in the release in:
+        <TOPOFPROJECT>\openaz\test\config\logging\OpenAzLoggingGuide.txt
+      which explains how to use the SimpleLog, along w some guidance on
+      getting log info out of sunxacml.
+   4. The first tutorial module:
+        <TOPOFPROJECT>\openaz\test\src\tutorial\OpenAzTutorial.java
+      has been cleaned up a bit, and basically follows the
+      TestStyles.testStyleString() method. It does 2 requests, one for a
+      "good user" that succeeds, and one for a "bad user" that fails.
+      The output of executing this is shown in the attached file as a
+      byproduct of providing the command prompt listing that follows the
+      instructions below to download, build and run.
+   5. One can also run the other test programs, like TestStyles,
+      QueryTest, and BulkDecideTest using the same command line as in
+      the instructions below, except change the class from
+      tutorial.OpenAzTutorial to test.TestStyles, etc. Also the file
+      names with policy info changes, see prev email for version 99,
+      ref'd above for that specific command line.
+
+
+
+First the "download, build, and run" instructions, then a brief 
+explanation of what the results should be.
+
+The instructions below are also in the attached txt file, which also has 
+the results of executing the instructions from a command prompt.
+
+All the javadoc associated with the project should be included with the 
+download and viewable from:
+    <TOPOFPROJECT>\openaz\test\doc\index.html
+
+************************************************
+
+    download openaz v101 from:
+	http://openaz.svn.sourceforge.net/viewvc/openaz/
+    right click on lower left "Download GNU tarball" and save
+	in the directory that will be referred to as <TOPOFPROJECT>
+
+	for example, below, the tarball was put in:
+	  C:\Notes\Downloads\OpenAz\V101
+
+	so, in my case:
+	  <TOPOFPROJECT> = C:\Notes\Downloads\OpenAz\V101
+
+     unzip the tarball in place (need to do it twice:t
+	1. openaz.tar.gz extracts to openaz.tar
+	2. openaz.tar extracts to openaz directory, which has
+		absolute path:
+		 <TOPOFPROJECT>\openaz
+		or:
+		 C:\Notes\Downloads\OpenAz\V101\openaz
+
+      to build the project, the following should work from the
+	command prompt:
+
+cd <TOPOFPROJECT>
+cd openaz\test\build
+ant clean
+ant
+
+	in my case, I did:
+
+	cd \Notes\Downloads\OpenAz\V101
+	cd openaz\test\build
+	ant clean
+	ant
+
+
+    to run the tutorial program:
+
+cd <TOPOFPROJECT>\openaz\test\bin
+set baseline=<TOPOFPROJECT>\openaz
+java -cp .;%baseline%\pep\bin;%baseline%\pdp\bin;%baseline%\azapi\bin;%baseline%\lib\jakarta-commons\commons-logging.jar;%baseline%\pdp\lib\sunxacml.jar tutorial.OpenAzTutorial  %baseline%\test\policy\OpenAz-Pseudo-Test-Policy.txt
+
+	in my case, I did:
+
+	cd \Notes\Downloads\OpenAz\V101\openaz\test\bin
+	set baseline=C:\Notes\Downloads\OpenAz\V101\openaz
+	java -cp .;%baseline%\pep\bin;%baseline%\pdp\bin;%baseline%\azapi\bin;%baseline%\lib\jakarta-commons\commons-logging.jar;%baseline%\pdp\lib\sunxacml.jar tutorial.OpenAzTutorial  %baseline%\test\policy\OpenAz-Pseudo-Test-Policy.txt
+
+
+************************************************
+
+If everything went as intended, the last thing should be the output from 
+OpenAzTutorial, which is included in the attachment.
+
+Basically, what's going on is the following:
+
+    The input file,
+    %baseline%\test\policy\OpenAz-Pseudo-Test-Policy.txt, is written
+    using the XACML Shorthand described in earlier emails. The exact
+    file contains the following:
+
+        PolicySet
+        Target
+          TA (act-id, "Tutorial-Read")
+        Policy
+          Target
+          Rules(Policy)
+           Rule (ef:Permit)
+            Target
+              TS (sub-id, "Joe Smith")
+              TR (res-id, "C:\\\\jsmith\\\\.*" mtId:rgx-mt)
+           Rule (ef:Deny)
+            Target
+            
+
+    This PolicySet applies to any request that has an action of
+    "Tutorial-Read". The main reason for including this is to avoid
+    conflict with other PolicySets, as sunxacml only allows one
+    top-level PolicySet. This is not a "problem", but simply an artifact
+    of XACML, which is effectively a technique for partitioning
+    "domains" of applicability as part of managing policies.
+    The main Policy has one rule that grants a "Permit" to Joe Smith, if
+    he is accessing, any files under the top level directory C:\jsmith.
+    The final rule explicitly denies anyone else access to anything and
+    Joe Smith to anything other than his designated subdirectories of
+    C:\jsmith.
+    The OpenAzTutorial.runStringTest method tries 2 accesses, one by Joe
+    Smith that works, and one by Joe Bad User that is Denied.
+
+    In the process, the program generates the XML Xacml file, which may
+    be examined in:
+        <TOPOFPROJECT>\openaz\test\policy\OpenAz-Pseudo-Test-Policy.txt.xml
+
+    The ratio of bytes of these 2 policy files is: 2273 bytes for the
+    xacml xml file, and 235 bytes for the xacml shorthand file, which is
+    nearly a ratio of 10:1. I expect in general that ratios between 5:1
+    and 10:1 will by typical when using the xacml shorthand. The main
+    benefit in the current project is that it makes the policies 5 or 10
+    times easier to manage for testing purposes, and has already repaid
+    itself in time savings for the time it took to develop it.
+
+Next steps will focus on further enhancing the tutorial with more test 
+cases, which initially will be
+pulled from TestStyles, QueryTest, and BulkDecideTest.
+
+Will plan to have scheduled call Thu Aug 5, 1PM ET.
+
+    Thanks,
+    Rich
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: http://lists.openliberty.org/pipermail/openaz/attachments/20100805/d652bc9d/attachment-0001.html 
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: 100804-svn201-v101-download.txt
+Url: http://lists.openliberty.org/pipermail/openaz/attachments/20100805/d652bc9d/attachment-0001.txt 
+
+
+--------------------------------------------------------------------------------
+
+
+Next message: [OpenAz] OpenAz Conference Call - Thursday August 5, 1 PM ET 
+Messages sorted by: [ date ] [ thread ] [ subject ] [ author ] 
+
+--------------------------------------------------------------------------------
+More information about the OpenAz mailing list

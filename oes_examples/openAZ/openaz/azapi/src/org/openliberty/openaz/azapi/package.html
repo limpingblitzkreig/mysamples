@@ -1,0 +1,55 @@
+<html>
+
+<body>
+The AzApi package contains the interfaces that must be 
+implemented by a provider.
+<b>
+The following diagram shows the backbone architecture of AzApi. 
+Additional interfaces to those in the boxes are generally components 
+included within the main boxes.
+ 
+<pre>
+
+                  +---------------+
+                  |   AzService   | - create it
+                  |               |
+                  |               |
+                  +---------------+
+                                   
+                  +---------------+                         +---------------+
+                  |   AzRequest   | - create it             |   AzResponse  |
+                  |    Context    | - addAzEntity (T)       |    Context    |
+                  |               | - getAzEntity (T,id)    |               |
+                  |               | - removeAzEntity (T,id) |               |
+                  +---------------+                         +---------------+
+                                   
+                  +---------------+
+                  |   AzEntity    | - create it
+                  |      (T)      | - addAzAttribute (W) to it
+                  | AzCategoryId* | - getAzAttribute from it (by attr id, next())
+                  |               | - removeAzAttribute from it (by attr id, current())
+                  |               | - getAzCategoryId (T)
+                  +---------------+
+                                   
+                  +---------------+
+                  |  AzAttribute  | - create it
+                  |      (T)      | - setAzAttributeValue (U,V) to it
+                  | AzCategoryId* | - getAzAttributeValue (U,V) from it
+                  |               | - getAzCategoryId (T)
+                  +---------------+
+                                   
+                  +--------------------------+
+                  |         AzAttribute      | - create it
+                  |            Value         | - setJavaObject to it
+                  |            (U,V)         | - getJavaObject from it (V)
+                  |    Xacml     |   Java    | - getAzDataTypeId (U)
+                  |     type     |   type    |
+                  |AzDataTypeId* |   AzData* |
+                  +--------------+-----------+
+                                   
+	Note: AzRequestContext is collection of AzEntity collections
+		AzEntity is collection of AzAttributes
+
+</pre>
+</body>
+</html>

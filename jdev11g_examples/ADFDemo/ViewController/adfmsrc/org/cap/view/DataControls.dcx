@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="11.1.1.59.23" id="DataControls"
+                    Package="org.cap.view">
+  <AdapterDataControl id="weather"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adfinternal.model.adapter.webservice.WSDefinition"
+                      SupportsTransactions="false"
+                      SupportsSortCollection="false" SupportsResetState="false"
+                      SupportsRangesize="false" SupportsFindMode="false"
+                      SupportsUpdates="true" Definition="org.cap.view.weather"
+                      BeanClass="org.cap.view.weather"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <definition xmlns="http://xmlns.oracle.com/adfm/adapter/webservice"
+                  name="weather" version="1.0"
+                  provider="oracle.adfinternal.model.adapter.webservice.provider.soap.SOAPProvider"
+                  wsdl="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl">
+        <service name="ndfdXML"
+                 namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl"
+                 connection="weather">
+          <port name="ndfdXMLPort">
+            <operation name="GmlTimeSeries"/>
+            <operation name="LatLonListCityNames"/>
+            <operation name="NDFDgenByDay"/>
+            <operation name="NDFDgenLatLonList"/>
+            <operation name="NDFDgen"/>
+            <operation name="LatLonListZipCode"/>
+            <operation name="CornerPoints"/>
+            <operation name="LatLonListSubgrid"/>
+            <operation name="NDFDgenByDayLatLonList"/>
+            <operation name="GmlLatLonList"/>
+            <operation name="LatLonListSquare"/>
+            <operation name="LatLonListLine"/>
+          </port>
+        </service>
+      </definition>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

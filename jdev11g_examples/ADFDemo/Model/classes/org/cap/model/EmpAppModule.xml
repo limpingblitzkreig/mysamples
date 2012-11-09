@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpAppModule"
+  Version="11.1.1.59.23"
+  ComponentClass="org.cap.model.EmpAppModuleImpl"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="org.cap.model.EmpAppModule_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="org.cap.model.DepartmentsView"/>
+  <ViewUsage
+    Name="CountriesView1"
+    ViewObjectName="org.cap.model.CountriesView"/>
+  <ViewUsage
+    Name="LocationsView1"
+    ViewObjectName="org.cap.model.LocationsView"/>
+  <ViewUsage
+    Name="RegionsView1"
+    ViewObjectName="org.cap.model.RegionsView"/>
+  <ViewUsage
+    Name="CountriesView1_1"
+    ViewObjectName="org.cap.model.CountriesView1"/>
+  <ViewUsage
+    Name="LocationsView1_1"
+    ViewObjectName="org.cap.model.LocationsView1"/>
+  <ViewUsage
+    Name="RegionsView1_1"
+    ViewObjectName="org.cap.model.RegionsView1"/>
+  <ViewUsage
+    Name="LocationsView2"
+    ViewObjectName="org.cap.model.LocationsView"/>
+  <ViewUsage
+    Name="CountriesView2"
+    ViewObjectName="org.cap.model.CountriesView"/>
+  <ViewUsage
+    Name="LocationsView1_2"
+    ViewObjectName="org.cap.model.LocationsView1"/>
+  <ViewUsage
+    Name="CountriesView1_2"
+    ViewObjectName="org.cap.model.CountriesView1"/>
+  <ViewLinkUsage
+    Name="LocCIdFkLink1"
+    ViewLinkObjectName="org.cap.model.LocCIdFkLink"
+    SrcViewUsageName="org.cap.model.EmpAppModule.CountriesView1"
+    DstViewUsageName="org.cap.model.EmpAppModule.LocationsView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="CountrRegFkLink1"
+    ViewLinkObjectName="org.cap.model.CountrRegFkLink"
+    SrcViewUsageName="org.cap.model.EmpAppModule.RegionsView1"
+    DstViewUsageName="org.cap.model.EmpAppModule.CountriesView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="LocCIdFkLink1_1"
+    ViewLinkObjectName="org.cap.model.LocCIdFkLink1"
+    SrcViewUsageName="org.cap.model.EmpAppModule.CountriesView1_1"
+    DstViewUsageName="org.cap.model.EmpAppModule.LocationsView1_2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="CountrRegFkLink1_1"
+    ViewLinkObjectName="org.cap.model.CountrRegFkLink1"
+    SrcViewUsageName="org.cap.model.EmpAppModule.RegionsView1_1"
+    DstViewUsageName="org.cap.model.EmpAppModule.CountriesView1_2"
+    Reversed="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="org.cap.model.ModelBundle"/>
+  </ResourceBundle>
+</AppModule>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.59.23"
+          id="weather" Package="org.cap.view" BeanClass="org.cap.view.weather"
+          isJavaBased="false">
+  <AccessorAttribute id="NDFDgenLatLonList_parameters" IsCollection="false"
+                     BeanClass="weather.Types.NDFDgenLatLonList"/>
+  <AccessorAttribute id="NDFDgen_parameters" IsCollection="false"
+                     BeanClass="weather.Types.NDFDgen"/>
+  <AccessorAttribute id="GmlLatLonList_parameters" IsCollection="false"
+                     BeanClass="weather.Types.GmlLatLonList"/>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="GmlTimeSeries" ReturnNodeName="Return">
+    <ParameterInfo id="listLatLon" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="startTime" Type="java.sql.Date" isStructured="false"/>
+    <ParameterInfo id="endTime" Type="java.sql.Date" isStructured="false"/>
+    <ParameterInfo id="compType" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="featureType" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="Unit" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="propertyName" Type="java.lang.String"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="LatLonListCityNames" ReturnNodeName="Return">
+    <ParameterInfo id="displayLevel" Type="java.lang.Integer"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="NDFDgenByDay"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="latitude" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="longitude" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="startDate" Type="java.sql.Date" isStructured="false"/>
+    <ParameterInfo id="numDays" Type="java.lang.Integer" isStructured="false"/>
+    <ParameterInfo id="Unit" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="format" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="NDFDgenLatLonList" ReturnNodeName="Return">
+    <ParameterInfo id="listLatLon" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="product" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="startTime" Type="java.sql.Date" isStructured="false"/>
+    <ParameterInfo id="endTime" Type="java.sql.Date" isStructured="false"/>
+    <ParameterInfo id="Unit" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="weatherParameters" Type="java.lang.Object"
+                   isStructured="false">
+      <Properties>
+        <Property Name="__SET_INITIAL_VALUE" Value="true"/>
+      </Properties>
+    </ParameterInfo>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="NDFDgen"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="latitude" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="longitude" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="product" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="startTime" Type="java.sql.Date" isStructured="false"/>
+    <ParameterInfo id="endTime" Type="java.sql.Date" isStructured="false"/>
+    <ParameterInfo id="Unit" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="weatherParameters" Type="java.lang.Object"
+                   isStructured="false">
+      <Properties>
+        <Property Name="__SET_INITIAL_VALUE" Value="true"/>
+      </Properties>
+    </ParameterInfo>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="LatLonListZipCode" ReturnNodeName="Return">
+    <ParameterInfo id="zipCodeList" Type="java.lang.String"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="CornerPoints"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="sector" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="LatLonListSubgrid" ReturnNodeName="Return">
+    <ParameterInfo id="lowerLeftLatitude" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="lowerLeftLongitude" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="upperRightLatitude" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="upperRightLongitude" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="resolution" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="NDFDgenByDayLatLonList" ReturnNodeName="Return">
+    <ParameterInfo id="listLatLon" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="startDate" Type="java.sql.Date" isStructured="false"/>
+    <ParameterInfo id="numDays" Type="java.lang.Integer" isStructured="false"/>
+    <ParameterInfo id="Unit" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="format" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="GmlLatLonList" ReturnNodeName="Return">
+    <ParameterInfo id="listLatLon" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="requestedTime" Type="java.sql.Date"
+                   isStructured="false"/>
+    <ParameterInfo id="featureType" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="Unit" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="weatherParameters" Type="java.lang.Object"
+                   isStructured="false">
+      <Properties>
+        <Property Name="__SET_INITIAL_VALUE" Value="true"/>
+      </Properties>
+    </ParameterInfo>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="LatLonListSquare" ReturnNodeName="Return">
+    <ParameterInfo id="centerPointLat" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="centerPointLon" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="distanceLat" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="distanceLon" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="resolution" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="LatLonListLine" ReturnNodeName="Return">
+    <ParameterInfo id="endPoint1Lat" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="endPoint1Lon" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="endPoint2Lat" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="endPoint2Lon" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+  </MethodAccessor>
+</JavaBean>

@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="org.cap.model.AppModule">
+      <AppModuleConfig name="AppModuleLocal" ApplicationName="org.cap.model.AppModule" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="org.cap.model.Model">
+         <Security AppModuleJndiName="org.cap.model.AppModule"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModuleShared" ApplicationName="org.cap.model.AppModule" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="org.cap.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="org.cap.model.AppModule"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="org.cap.model.EmpAppModule">
+      <AppModuleConfig name="EmpAppModuleLocal" jbo.project="org.cap.model.Model" ApplicationName="org.cap.model.EmpAppModule" DeployPlatform="LOCAL" JDBCName="hr">
+         <Database jbo.TypeMapEntries="Java"/>
+         <Security AppModuleJndiName="org.cap.model.EmpAppModule"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="EmpAppModuleShared" jbo.project="org.cap.model.Model" ApplicationName="org.cap.model.EmpAppModule" DeployPlatform="LOCAL" JDBCName="hr">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="Java"/>
+         <Security AppModuleJndiName="org.cap.model.EmpAppModule"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

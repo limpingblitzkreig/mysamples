@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- Copyright (c) 2011, Subbu (Subrahmanyam) Devulapalli. All rights reserved. -->
+<HTML>
+<head>
+<title>OES examples: login page</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+</head>
+
+<body>
+
+	<h1>Fill-in your authorization request</h1>
+	<br>
+	<TABLE ALIGN=LEFT>
+		<TR>
+			<TD ALIGN=LEFT VALIGN=TOP>
+				<!-- <FORM method="POST" ACTION="AuthzResponse.jsp"> -->
+				<FORM method="POST" ACTION="AuthzResponse.jsp"
+					target="iframe_results">
+
+					<br> Enter Application Name (e.g. HelloOESworld): <INPUT
+						TYPE="TEXT" Name="Application_Name" size=25 value=""> <br>
+
+					<br> Enter Resource Type (e.g. MyResourceType): <INPUT
+						TYPE="TEXT" Name="Resource_Type" size=25 value=""> <br>
+
+					<br> Enter Resource Name (e.g. MyResource): <INPUT TYPE="TEXT"
+						Name="Resource_Name" size=25 value=""> <br> <br>
+					Enter Action name (e.g. write): <INPUT TYPE="TEXT" Name="action"
+						value=""><br> <br> <br> Enter Attribute 1:
+					&nbsp;&nbsp;Name <INPUT TYPE="TEXT" Name="Attr_1_name" value=""
+						size=15>&nbsp;&nbsp; &nbsp;&nbsp;Value <INPUT TYPE="TEXT"
+						Name="Attr_1_value" value=""><br> <br> <br>
+					Enter Attribute 2: &nbsp;&nbsp;Name <INPUT TYPE="TEXT"
+						Name="Attr_2_name" value="" size=15>&nbsp;&nbsp;
+					&nbsp;&nbsp;Value <INPUT TYPE="TEXT" Name="Attr_2_value" value=""><br>
+					<br> <br> Enter Attribute 3: &nbsp;&nbsp;Name <INPUT
+						TYPE="TEXT" Name="Attr_3_name" value="" size=15>&nbsp;&nbsp;
+					&nbsp;&nbsp;Value <INPUT TYPE="TEXT" Name="Attr_3_value" value=""><br>
+					<br> <br> <br>
+					<INPUT TYPE=submit name=submit Value="Get Authorization">
+				</FORM> <br>
+			<br>
+			<br> <a href="logout.jsp">Logout</a></TD>
+			<TD ALIGN=LEFT VALIGN=TOP>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<iframe
+					src="AuthzResponseBlank.jsp" name="iframe_results" WIDTH=450
+					HEIGHT=400></iframe> <br>
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Authorization Response</B></TD>
+		</TR>
+	</TABLE>
+
+
+
+</body>
+</HTML>

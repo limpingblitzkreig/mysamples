@@ -1,0 +1,195 @@
+Release notes for the preview version of OpenAz/PepApi 1.1.
+
+At present, the source is not available, pending the setup
+of the 1.1 branch, however, it is considered that this
+preview will be useful to people who want to know what
+the next release is intended to contain.
+
+Below is a brief description of the changes from PepApi 1.0 to PepApi 1.1.
+
+It is hoped that it will be helpful for people to understand exactly
+what the changes have been, and where the impact should be.
+
+In particular, the design strategy was to preserve binary compatibilty with
+the PepApi 1.0 interface, which means that if you have an existing application,
+that uses the PepApi 1.0 interface, with a PepApi 1.0 impl, that, in theory,
+one should be able to simply replace the
+    PepApi 1.0 openliberty-openaz-azapi.jar file
+with the
+    PepApi 1.1 openliberty-openaz-azapi.jar file
+and the system should work by only recompiling the provider impl.
+
+To test binary compatibility, ide's typically offer an ability to
+provide a default implementation. For example, with eclipse if a
+class is specified to implement and interface that it does not yet,
+then right clicking on the offending line and picking "quick fix"
+will cause any unimplemented methods to have a dummy implementation
+that generally returns null. Since 1.0 clients do not call any of
+the 1.1 new methods, there should be no runtime issues w the 1.0 client
+calling the 1.1 interface.
+
+In addition, if a PepApi 1.0 provider, decides to upgrade to PepApi 1.1, that
+provider will need to implement the new PepApi 1.1 methods, and rebuild
+with the PepApi 1.1 interfaces, however, that new provider based on PepApi 1.1
+should be able to be put in operation w applications built w PepApi 1.0 w/o
+having to recompile the applications.
+
+The scenarios above have not been tested, however, this is what we believe
+should work based on the design approach of not changing any existing
+methods, and only adding new methods to existing interfaces.
+
+In any event, that aside, below is the "brief summary" of OpenAz/PepApi 1.1 changes
+(Please let me know if you find any mistakes or omissions):
+
+  Thanks,
+  Rich
+
+
+
+  classes:
+
+    org.openliberty.openaz.azapi.pep 
+    Interface PepRequestFactoryManager: public, final
+
+      New factory class w 2 new factory methods:
+
+          PepRequestFactory newInstance();
+
+        PepRequestFactory newInstance(
+                String classname, ClassLoader classLoader);
+
+  interfaces:
+
+    org.openliberty.openaz.azapi.pep 
+    Interface PepRequestFactory:
+
+      New newQueryPepRequest plus 3 new setter methods
+       (this method is considered to be a superset of the
+        existing 1.0 newQueryPepRequest, which will probably
+        be deprecated in next release, but not yet),
+       (this method uses a new enum type PepResponseType,
+        which, in combo w the boolean, should effectively
+        superset and replace the 1.0 PepRequestQueryType)
+
+          PepRequest newQueryPepRequest(
+                Object subjectObj,
+                Object resourceObj, Object actionObj,
+                Object environmentObj,
+                PepResponseType pepResponseType,
+                boolean resourceActionOnly) 
+
+          void setAzService(AzService azService) 
+
+          void setContainerName(String name)
+
+          void setProviderClassName(java.lang.String providerClassName)
+
+
+    org.openliberty.openaz.azapi.pep 
+    Interface PepRequest:
+
+      In order to accomodate the new parameters for the new
+       PepRequestFactory query method (above), 2 new getters
+       and setters have been added:
+
+          boolean getResourceActionOnly() 
+ 
+          PepResponseType getPepResponseType() 
+
+          void setPepResponseType(PepResponseType pepResponseType)
+
+          void setResourceActionOnly(boolean resourceActionOnly)
+
+    org.openliberty.openaz.azapi.pep 
+    Interface PepResponseFactory:
+
+      In order to accomodate direct PDP responses, as opposed
+       to only PDPs that support AzApi, a more general status
+       code mechanism has been put in place, where new pdp-specific
+       status codes can be defined and their behaviors set similar
+       to the way the xacml-specific status codes (missing attr,
+       not applicable, processing error, and syntax error) were
+       explicitly supported in PepApi 1.0. 
+
+       To support the new functionality, 2 new getters and setters
+       have been added:
+
+           PepResponseBehavior getDefaultBehavior() 
+
+           <T extends java.lang.Enum<T>>
+           PepResponseBehavior getStatusCodeBehavior(T statusCode) 
+
+           void setDefaultBehavior(PepResponseBehavior defaultBehavior) 
+
+           <T extends java.lang.Enum<T>> 
+           void setStatusCodeBehavior(
+                 PepResponseBehavior statusCodeBehavior, T statusCode)
+
+    org.openliberty.openaz.azapi.pep 
+    Interface PepResponse:
+
+      In order to accomodate the new PepResponseType and brief/verbose
+       options that are available, 2 getters have been added:
+
+          PepResponseType getPepResponseType() 
+ 
+          boolean getResourceActionOnly()
+ 
+    org.openliberty.openaz.azapi.pep 
+    Interface Obligation:
+
+      In order to support multi-value attributes and non-String
+       object attribute values, 2 new get methods have been added
+       that support arrays, and the single string return method
+       has been deprecated:
+
+          Map<String,Object[]> getAttributeObjectValues() 
+ 
+          Map<String,String[]> getAttributeStringValues() 
+
+        Deprecated:
+          Map<String,String> getStringValues()  
+
+
+    Exceptions:
+
+      org.openliberty.openaz.azapi.pep 
+      Class PepException
+
+        In order to enable PepApi to be used w/o try/catch
+         blocks, PepException was changed to inherit from
+         RuntimeException
+
+            org.openliberty.openaz.azapi.pep 
+            Class PepException
+
+            java.lang.Object
+              java.lang.Throwable
+                java.lang.Exception
+                  java.lang.RuntimeException
+                    org.openliberty.openaz.azapi.pep.PepException
+
+    Enums:
+
+      org.openliberty.openaz.azapi.constants 
+      Enum PepResponseType:
+
+        In order to support a more symmetric selection of query
+         results, a new enum has been added, which in conjunction
+         with an associated boolean newQueryPepRequest parameter,
+         resourceActionOnly, allows brief and verbose for the
+         following 3 choices of authorization decision results to
+         return from a query:
+
+            ALL_RESULTS 
+
+            ONLY_ALLOWED_RESULTS 
+
+            ONLY_DENIED_RESULTS 
+
+
+
+
+         1         2         3         4         5         6         7     V V 8
+123456789012345678901234567890123456789012345678901234567890123456789012345678901234
+

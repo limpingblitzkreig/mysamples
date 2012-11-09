@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir=".." default="build" name="testgenerics">
+
+
+  <property name="srcdir"  value="${basedir}/src"/>
+  <property name="openaz.home" value="${basedir}/.."/>
+  <property name="libdir"  value="${openaz.home}/lib"/>
+    
+    <target name="compile" depends="build-pep">
+    
+        <echo message="Java Version: ${java.version}"/>
+        <mkdir dir="${basedir}/bin"/>
+        <echo message="${basedir}"/>
+        <javac srcdir="${srcdir}" destdir="${basedir}/bin">
+        
+        </javac>
+    
+    </target>
+    
+    <target name="build" depends="clean,compile">
+    
+        <jar basedir="${basedir}/bin" destfile="${basedir}/build/testgenerics.jar"/>
+
+        <jar basedir="${basedir}" destfile="${basedir}/build/testgenerics.jar" includes="**/*.xml" excludes="build/**" update="true"/>
+    
+    </target>
+    
+    <target name="clean">
+    
+        <delete file="${basedir}/build/testgenerics.jar"/>
+        <delete dir="${basedir}/bin"/>
+    
+    </target>
+
+    <target name="run-test" depends="build">
+
+	<input message="Enter the class of the Test to Run" addProperty="test.class"/>
+        <echo message="${test.class}"/>
+
+	<java classname="${test.class}" fork="true">
+ <classpath>
+            
+                <path location="${openaz.home}/azapi/build/openliberty-openaz-azapi.jar"/>
+		<path location="${openaz.home}/pdp/build/openliberty-openaz-pdp.jar"/>
+		<path location="${openaz.home}/pep/build/openliberty-openaz-pep.jar"/>
+		<path location="${openaz.home}/test/build/openliberty-openaz-test.jar"/>
+        	<fileset dir="${libdir}">
+			<include name="**/**"/>
+		</fileset>
+            </classpath>
+	</java>
+	
+
+    </target>
+
+    <target name="run-spring-test" depends="build">
+
+	<property name="test.class" value="test.SpringPEPTest"/>
+
+	<input message="Enter the name of the config-file" addProperty="config.file"/>
+
+	<java classname="${test.class}" fork="true">
+ <classpath>
+            
+                <path location="${openaz.home}/azapi/build/openliberty-openaz-azapi.jar"/>
+		<path location="${openaz.home}/pdp/build/openliberty-openaz-pdp.jar"/>
+		<path location="${openaz.home}/pep/build/openliberty-openaz-pep.jar"/>
+		<path location="${openaz.home}/test/build/openliberty-openaz-test.jar"/>
+        	<fileset dir="${libdir}">
+			<include name="**/**"/>
+		</fileset>
+            </classpath>
+	    <arg line="${config.file}"/>
+	</java>
+	
+
+    </target>
+
+    <target name="build-pep" depends="build-pdp">
+
+	<ant antfile="${openaz.home}/pep/build/build.xml" inheritAll="false"/>
+
+
+    </target>
+
+    <target name="clean-pep">
+
+	<ant antfile="${openaz.home}/pep/build/build.xml" inheritAll="false" target="clean"/>
+
+
+    </target>
+
+    <target name="build-pdp" depends="build-azapi">
+
+	<ant antfile="${openaz.home}/pdp/build/build.xml" inheritAll="false"/>
+
+
+    </target>
+
+    <target name="clean-pdp">
+
+	<ant antfile="${openaz.home}/pdp/build/build.xml" inheritAll="false" target="clean"/>
+
+
+    </target>
+
+    <target name="build-azapi">
+
+	<ant antfile="${openaz.home}/azapi/build/build.xml" inheritAll="false"/>
+
+
+    </target>
+
+    <target name="clean-azapi">
+
+	<ant antfile="${openaz.home}/azapi/build/build.xml" inheritAll="false" target="clean"/>
+
+
+    </target>
+
+</project>

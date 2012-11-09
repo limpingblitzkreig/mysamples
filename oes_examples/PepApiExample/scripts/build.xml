@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   PepApiExample contains all the binaries you need for running the application in the build directory.
+   Running "ant" will run the PepSampleApp by default.
+   There is a "build" target for rebuilding the PepSamplePolicy (servlet) and the PepSampleApp (J2SE client) code.
+   It is required only should you wish to modify and rebuild the source code.
+   Please set the ANT_HOME environment property.
+-->
+
+<project name="PepSampleApp" basedir="." default="run">
+
+    <property name="app.name" value="PepSamplePolicy"/>
+    <property name="jseapp.name" value="PepSampleApp"/>
+
+    <property name="build.dir" value="../build"/>
+    <property name="src.dir" value="../src"/>
+    <property name="web.dir" value="../web"/>
+    <property name="lib.dir" value="../lib"/>
+
+    <property file="build.properties"/>
+
+    <property name="oes.instance.home" value="${OES_CLIENT_HOME}/oes_sm_instances/${OES_INSTANCE_NAME}"/>
+
+    <echo message="MIDDLEWARE_HOME is set to ${MIDDLEWARE_HOME}"/>
+    <echo message="IDM_NAME is set to ${IDM_NAME}"/>
+    <echo message="OES_CLIENT_HOME is set to ${OES_CLIENT_HOME}"/>
+    <echo message="oes.instance.home is set to ${oes.instance.home}"/>
+
+    <path id="compile.class.path">
+        <fileset dir="${MIDDLEWARE_HOME}/${IDM_NAME}/modules/oracle.jps_11.1.1">
+            <include name="**/*.jar"/>
+        </fileset>
+        <pathelement location="${MIDDLEWARE_HOME}/modules/javax.servlet_1.0.0.0_2-5.jar"/>
+    </path>
+
+
+    <path id="runtime.class.path">
+        <pathelement location="${MIDDLEWARE_HOME}/modules/org.openliberty.openaz.azapi_1.0.jar"/>
+        <pathelement location="${MIDDLEWARE_HOME}/modules/javax.security.jacc_1.0.0.0_1-1.jar"/>
+        <pathelement location="${OES_CLIENT_HOME}/modules/oracle.oes.sm_11.1.1/oes-client.jar"/>
+        <pathelement location="${lib.dir}/PepSampleApp.jar"/>
+        <path refid="compile.class.path"/>
+    </path>
+
+
+    <target name="clean" description="delete build directories">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <copy todir="${build.dir}/">
+            <fileset dir="${web.dir}">
+            </fileset>
+        </copy>
+    </target>
+
+
+    <!-- compile servlet and client code -->
+    <target name="compile" depends="clean, init">
+        <mkdir dir="${build.dir}/classes"/>
+        <mkdir dir="${build.dir}/WEB-INF/classes"/>
+
+        <javac destdir="${build.dir}/WEB-INF/classes" debug="true">
+            <src path="${src.dir}/servlet"/>
+            <classpath refid="compile.class.path"/>
+        </javac>
+
+        <javac destdir="${build.dir}/classes" debug="true">
+            <src path="${src.dir}/client"/>
+            <classpath refid="compile.class.path"/>
+        </javac>
+    </target>
+
+
+    <!-- build your ear file -->
+    <target name="build" depends="compile">
+        <jar destfile="${build.dir}/${app.name}.war" basedir="${build.dir}" includes="WEB-INF/**"/>
+        <jar destfile="${build.dir}/${app.name}.ear" basedir="${build.dir}"
+             includes="${app.name}.war, META-INF/**"/>
+        <jar destfile="${build.dir}/${jseapp.name}.jar" basedir="${build.dir}/classes"/>
+    </target>
+
+
+    <target name="run">
+        <java classname="oracle.security.example.PepSampleApp" fork="true">
+
+            <!--
+           <classpath>
+                <pathelement path="${runtime.class.path}"/>
+            </classpath>
+            -->
+            <classpath refid="runtime.class.path"/>
+
+
+            <sysproperty key="oracle.security.jps.config" value="${oes.instance.home}/config/jps-config.xml"/>
+        </java>
+    </target>
+
+</project>
+
+
+
+

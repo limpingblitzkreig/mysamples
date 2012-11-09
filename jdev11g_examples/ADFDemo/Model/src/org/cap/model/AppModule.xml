@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.59.23"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="org.cap.model.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="org.cap.model.EmployeesView"/>
+  <ViewUsage
+    Name="JobsView1"
+    ViewObjectName="org.cap.model.JobsView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="org.cap.model.EmployeesView"/>
+  <ViewUsage
+    Name="EmployeesView3"
+    ViewObjectName="org.cap.model.EmployeesView"/>
+  <ViewUsage
+    Name="DepartmentsView2"
+    ViewObjectName="org.cap.model.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView4"
+    ViewObjectName="org.cap.model.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="org.cap.model.EmpManagerFkLink"
+    SrcViewUsageName="org.cap.model.AppModule.EmployeesView1"
+    DstViewUsageName="org.cap.model.AppModule.EmployeesView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="org.cap.model.EmpDeptFkLink"
+    SrcViewUsageName="org.cap.model.AppModule.DepartmentsView1"
+    DstViewUsageName="org.cap.model.AppModule.EmployeesView3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink1"
+    ViewLinkObjectName="org.cap.model.DeptMgrFkLink"
+    SrcViewUsageName="org.cap.model.AppModule.EmployeesView1"
+    DstViewUsageName="org.cap.model.AppModule.DepartmentsView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpJobFkLink1"
+    ViewLinkObjectName="org.cap.model.EmpJobFkLink"
+    SrcViewUsageName="org.cap.model.AppModule.JobsView1"
+    DstViewUsageName="org.cap.model.AppModule.EmployeesView4"
+    Reversed="false"/>
+</AppModule>

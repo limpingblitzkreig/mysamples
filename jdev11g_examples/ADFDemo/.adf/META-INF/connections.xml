@@ -1,0 +1,596 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="hr" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="hr" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="sid">
+            <Contents>XE</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="subtype">
+            <Contents>oraJDBC</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>1521</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>localhost</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>hr</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oraDriverType">
+            <Contents>thin</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="weather" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" service="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}ndfdXML">
+                  <model name="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}wsdl" xmlns="http://oracle.com/ws/model">
+                     <types xmlns="http://oracle.com/oracle/webservices/mdds">
+                        <enumeration namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="formatType" xsdType="string" xmlns="">
+                           <value value="24 hourly"/>
+                           <value value="12 hourly"/>
+                        </enumeration>
+                        <simpleType namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType" xsdType="string" pattern="[\-]?\d{1,2}\.\d+,[\-]?\d{1,3}\.\d+( [\-]?\d{1,2}\.\d+,[\-]?\d{1,3}\.\d+)*" xmlns=""/>
+                        <enumeration namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="unitType" xsdType="string" xmlns="">
+                           <value value="e"/>
+                           <value value="m"/>
+                        </enumeration>
+                        <enumeration namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="featureTypeType" xsdType="string" xmlns="">
+                           <value value="Forecast_Gml2Point"/>
+                           <value value="Forecast_Gml2AllWx"/>
+                           <value value="Forecast_GmlsfPoint"/>
+                           <value value="Forecast_GmlObs"/>
+                           <value value="NdfdMultiPointCoverage"/>
+                           <value value="Ndfd_KmlPoint"/>
+                        </enumeration>
+                        <enumeration namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="displayLevelType" xsdType="integer" xmlns="">
+                           <value value="1"/>
+                           <value value="2"/>
+                           <value value="3"/>
+                           <value value="4"/>
+                           <value value="12"/>
+                           <value value="34"/>
+                           <value value="1234"/>
+                        </enumeration>
+                        <enumeration namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="productType" xsdType="string" xmlns="">
+                           <value value="time-series"/>
+                           <value value="glance"/>
+                        </enumeration>
+                        <enumeration namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="compTypeType" xsdType="string" xmlns="">
+                           <value value="IsEqual"/>
+                           <value value="Between"/>
+                           <value value="GreaterThan"/>
+                           <value value="GreaterThanEqualTo"/>
+                           <value value="LessThan"/>
+                           <value value="LessThanEqualTo"/>
+                        </enumeration>
+                        <complexType elementQualified="false" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="weatherParametersType" prefix="typens" xmlns="">
+                           <all minOccurs="1" maxOccurs="1">
+                              <part name="maxt" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="mint" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="temp" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="dew" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="pop12" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="qpf" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="sky" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="snow" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="wspd" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="wdir" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="wx" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="waveh" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="icons" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="rh" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="appt" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="incw34" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="incw50" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="incw64" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="cumw34" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="cumw50" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="cumw64" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="critfireo" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="dryfireo" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="conhazo" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="ptornado" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="phail" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="ptstmwinds" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="pxtornado" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="pxhail" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="pxtstmwinds" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="ptotsvrtstm" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="pxtotsvrtstm" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="tmpabv14d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="tmpblw14d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="tmpabv30d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="tmpblw30d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="tmpabv90d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="tmpblw90d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="prcpabv14d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="prcpblw14d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="prcpabv30d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="prcpblw30d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="prcpabv90d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="prcpblw90d" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="precipa_r" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="sky_r" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="td_r" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="temp_r" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="wdir_r" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="wspd_r" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="wwa" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="tstmprb" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="tstmcat" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="wgust" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="iceaccum" required="true" namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" elementQualified="false">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                           </all>
+                        </complexType>
+                        <enumeration namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="sectorType" xsdType="string" xmlns="">
+                           <value value="conus"/>
+                           <value value="nhemi"/>
+                           <value value="alaska"/>
+                           <value value="guam"/>
+                           <value value="hawaii"/>
+                           <value value="puertori"/>
+                           <value value="npacocn"/>
+                        </enumeration>
+                        <simpleType namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="zipCodeListType" xsdType="string" pattern="\d{5}(\-\d{4})?( \d{5}(\-\d{4})?)*" xmlns=""/>
+                        <simpleType namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listCityNamesType" xsdType="string" pattern="[a-zA-Z'\-]*( ?[a-zA-Z'\-]*)*,[A-Z][A-Z](\|[a-zA-Z'\-]*( ?[a-zA-Z'\-]*)*,[A-Z][A-Z])*" xmlns=""/>
+                        <types-in-elements/>
+                     </types>
+                     <service name="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}ndfdXML">
+                        <port name="ndfdXMLPort" binding="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}ndfdXMLBinding" portType="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}ndfdXMLPortType">
+                           <soap addressUrl="http://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="LatLonListLine">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListLine" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListLineRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListLine" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="endPoint1Lat" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="endPoint1Lon" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="endPoint2Lat" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="endPoint2Lon" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListLineResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListLine" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listLatLonOut" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="CornerPoints">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#CornerPoints" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}CornerPointsRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="CornerPoints" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="sector" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="sectorType"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}CornerPointsResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="CornerPoints" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listLatLonOut" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="NDFDgenByDay">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgenByDay" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}NDFDgenByDayRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="NDFDgenByDay" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="latitude" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="longitude" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="startDate" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="date"/>
+                                    </part>
+                                    <part name="numDays" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="integer"/>
+                                    </part>
+                                    <part name="Unit" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="unitType"/>
+                                    </part>
+                                    <part name="format" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="formatType"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}NDFDgenByDayResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="NDFDgenByDay" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="dwmlByDayOut" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="NDFDgenByDayLatLonList">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgenByDayLatLonList" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}NDFDgenByDayLatLonListRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="NDFDgenByDayLatLonList" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listLatLon" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType"/>
+                                    </part>
+                                    <part name="startDate" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="date"/>
+                                    </part>
+                                    <part name="numDays" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="integer"/>
+                                    </part>
+                                    <part name="Unit" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="unitType"/>
+                                    </part>
+                                    <part name="format" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="formatType"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}NDFDgenByDayLatLonListResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="NDFDgenByDayLatLonList" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="dwmlByDayOut" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="NDFDgen">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgen" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}NDFDgenRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="NDFDgen" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="latitude" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="longitude" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="product" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="productType"/>
+                                    </part>
+                                    <part name="startTime" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="dateTime"/>
+                                    </part>
+                                    <part name="endTime" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="dateTime"/>
+                                    </part>
+                                    <part name="Unit" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="unitType"/>
+                                    </part>
+                                    <part name="weatherParameters" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="weatherParametersType" prefix="typens"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}NDFDgenResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="NDFDgen" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="dwmlOut" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="GmlLatLonList">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#GmlLatLonList" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}GmlLatLonListRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="GmlLatLonList" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listLatLon" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType"/>
+                                    </part>
+                                    <part name="requestedTime" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="dateTime"/>
+                                    </part>
+                                    <part name="featureType" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="featureTypeType"/>
+                                    </part>
+                                    <part name="Unit" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="unitType"/>
+                                    </part>
+                                    <part name="weatherParameters" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="weatherParametersType" prefix="typens"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}GmlLatLonListResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="GmlLatLonList" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="dwGmlOut" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="LatLonListZipCode">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListZipCode" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListZipCodeRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListZipCode" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="zipCodeList" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="zipCodeListType"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListZipCodeResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListZipCode" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listLatLonOut" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="LatLonListCityNames">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListCityNames" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListCityNamesRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListCityNames" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="displayLevel" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="displayLevelType"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListCityNamesResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListCityNames" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listCityNamesOut" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listCityNamesType"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="GmlTimeSeries">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#GmlTimeSeries" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}GmlTimeSeriesRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="GmlTimeSeries" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listLatLon" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType"/>
+                                    </part>
+                                    <part name="startTime" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="dateTime"/>
+                                    </part>
+                                    <part name="endTime" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="dateTime"/>
+                                    </part>
+                                    <part name="compType" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="compTypeType"/>
+                                    </part>
+                                    <part name="featureType" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="featureTypeType"/>
+                                    </part>
+                                    <part name="Unit" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="unitType"/>
+                                    </part>
+                                    <part name="propertyName" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}GmlTimeSeriesResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="GmlTimeSeries" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="dwGmlOut" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="LatLonListSubgrid">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListSubgrid" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListSubgridRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListSubgrid" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="lowerLeftLatitude" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="lowerLeftLongitude" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="upperRightLatitude" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="upperRightLongitude" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="resolution" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListSubgridResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListSubgrid" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listLatLonOut" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="LatLonListSquare">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#LatLonListSquare" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListSquareRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListSquare" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="centerPointLat" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="centerPointLon" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="distanceLat" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="distanceLon" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                    <part name="resolution" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}LatLonListSquareResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="LatLonListSquare" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listLatLonOut" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                           <operation name="NDFDgenLatLonList">
+                              <soap soapAction="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgenLatLonList" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}NDFDgenLatLonListRequest">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="NDFDgenLatLonList" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="listLatLon" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="listLatLonType"/>
+                                    </part>
+                                    <part name="product" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="productType"/>
+                                    </part>
+                                    <part name="startTime" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="dateTime"/>
+                                    </part>
+                                    <part name="endTime" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="dateTime"/>
+                                    </part>
+                                    <part name="Unit" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="unitType"/>
+                                    </part>
+                                    <part name="weatherParameters" required="true" xmlns="">
+                                       <type namespace="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd" localPart="weatherParametersType" prefix="typens"/>
+                                    </part>
+                                 </message>
+                              </input>
+                              <output name="" message="{http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl}NDFDgenLatLonListResponse">
+                                 <message style="1" use="2" soapVersion="1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" docLitWrapped="false" namespace="http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl" localPart="NDFDgenLatLonList" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="dwmlOut" required="true" xmlns="">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                    </part>
+                                 </message>
+                              </output>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>
