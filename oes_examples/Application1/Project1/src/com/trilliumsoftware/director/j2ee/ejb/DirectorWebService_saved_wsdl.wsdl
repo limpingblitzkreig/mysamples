@@ -1,0 +1,419 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WL5G3N0:definitions targetNamespace="http://ejb.j2ee.director.trilliumsoftware.com" xmlns="" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.w3.org/2001/XMLSchema" xmlns:WL5G3N2="java:com.trilliumsoftware.director.j2ee.transfer" xmlns:WL5G3N3="http://ejb.j2ee.director.trilliumsoftware.com" xmlns:WL5G3N4="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <s:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="java:com.trilliumsoftware.director.j2ee.transfer" xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:stns="java:com.trilliumsoftware.director.j2ee.transfer" xmlns:tns="http://ejb.j2ee.director.trilliumsoftware.com" xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <s:import namespace="java:language_builtins.lang"/>
+      <s:element name="DirectorServiceException" type="stns:DirectorServiceException"/>
+      <s:complexType name="ArrayOfMatchField">
+        <s:complexContent>
+          <s:restriction base="soapenc:Array">
+            <s:attribute ref="soapenc:arrayType" wsdl:arrayType="stns:MatchField[]" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"/>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfMatchRecord">
+        <s:complexContent>
+          <s:restriction base="soapenc:Array">
+            <s:attribute ref="soapenc:arrayType" wsdl:arrayType="stns:MatchRecord[]" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"/>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfMatchResult">
+        <s:complexContent>
+          <s:restriction base="soapenc:Array">
+            <s:attribute ref="soapenc:arrayType" wsdl:arrayType="stns:MatchResult[]" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"/>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CleanseResults">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="failLevel" nillable="true" type="xsd:int"/>
+          <s:element maxOccurs="1" minOccurs="1" name="result" nillable="true" type="tp:ArrayOfString" xmlns:tp="java:language_builtins.lang"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CleanserInput">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="inputData" nillable="true" type="tp:ArrayOfString" xmlns:tp="java:language_builtins.lang"/>
+          <s:element maxOccurs="1" minOccurs="1" name="server" nillable="true" type="stns:DirectorServer"/>
+          <s:element maxOccurs="1" minOccurs="1" name="trilName" nillable="true" type="tp:ArrayOfString" xmlns:tp="java:language_builtins.lang"/>
+          <s:element maxOccurs="1" minOccurs="1" name="updateRule" nillable="true" type="tp:ArrayOfString" xmlns:tp="java:language_builtins.lang"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CleanserXMLInput">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="rootTag" nillable="true" type="xsd:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="server" nillable="true" type="stns:DirectorServer"/>
+          <s:element maxOccurs="1" minOccurs="1" name="xml" nillable="true" type="xsd:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DirectorServer">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="serverName" nillable="true" type="xsd:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="systemId" type="xsd:byte"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DirectorServiceException">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="directorStatusCode" nillable="true" type="xsd:int"/>
+          <s:element maxOccurs="1" minOccurs="1" name="message" nillable="true" type="xsd:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatchCandidateInput">
+        <s:complexContent>
+          <s:extension base="stns:MatcherInput">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="1" name="matchCandidate" nillable="true" type="stns:MatchFields"/>
+              <s:element maxOccurs="1" minOccurs="1" name="matchWindow" nillable="true" type="stns:MatchRecords"/>
+              <s:element maxOccurs="1" minOccurs="1" name="server" nillable="true" type="stns:DirectorServer"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MatchCandidateWithSuspectsInput">
+        <s:complexContent>
+          <s:extension base="stns:MatcherInput">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="1" name="matchCandidate" nillable="true" type="stns:MatchFields"/>
+              <s:element maxOccurs="1" minOccurs="1" name="matchWindow" nillable="true" type="stns:MatchRecords"/>
+              <s:element maxOccurs="1" minOccurs="1" name="server" nillable="true" type="stns:DirectorServer"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MatchField">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="name" nillable="true" type="xsd:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="value" nillable="true" type="xsd:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatchFields">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="matchField" nillable="true" type="stns:ArrayOfMatchField"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatchRecord">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="key" nillable="true" type="xsd:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="matchField" nillable="true" type="stns:MatchFields"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatchRecords">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="matchRecords" nillable="true" type="stns:ArrayOfMatchRecord"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatchResult">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="key" nillable="true" type="xsd:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="matchPattern" nillable="true" type="xsd:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatchResults">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="matchResults" nillable="true" type="stns:ArrayOfMatchResult"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatcherCandidateSuspectsXMLInput">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="rootTag" nillable="true" type="xsd:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="server" nillable="true" type="stns:DirectorServer"/>
+          <s:element maxOccurs="1" minOccurs="1" name="xml" nillable="true" type="xsd:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatcherInput">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="matchCandidate" nillable="true" type="stns:MatchFields"/>
+          <s:element maxOccurs="1" minOccurs="1" name="matchWindow" nillable="true" type="stns:MatchRecords"/>
+          <s:element maxOccurs="1" minOccurs="1" name="server" nillable="true" type="stns:DirectorServer"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatcherXMLInput">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="rootTag" nillable="true" type="xsd:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="server" nillable="true" type="stns:DirectorServer"/>
+          <s:element maxOccurs="1" minOccurs="1" name="xml" nillable="true" type="xsd:string"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="java:language_builtins.lang" xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:stns="java:language_builtins.lang" xmlns:tns="http://ejb.j2ee.director.trilliumsoftware.com" xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <s:complexType name="ArrayOfString">
+        <s:complexContent>
+          <s:restriction base="soapenc:Array">
+            <s:attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"/>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="setTraceFile">
+    <WL5G3N0:part name="string" type="WL5G3N1:string"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="setTraceFileResponse"/>
+  <WL5G3N0:message name="DirectorServiceException">
+    <WL5G3N0:part name="DirectorServiceException" type="WL5G3N2:DirectorServiceException"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="setTraceOff"/>
+  <WL5G3N0:message name="setTraceOffResponse"/>
+  <WL5G3N0:message name="setTraceOn"/>
+  <WL5G3N0:message name="setTraceOnResponse"/>
+  <WL5G3N0:message name="cleanse">
+    <WL5G3N0:part name="cleanserInput" type="WL5G3N2:CleanserInput"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="cleanseResponse">
+    <WL5G3N0:part name="result" type="WL5G3N2:CleanseResults"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="matchCandidate">
+    <WL5G3N0:part name="matchCandidateInput" type="WL5G3N2:MatchCandidateInput"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="matchCandidateResponse">
+    <WL5G3N0:part name="result" type="WL5G3N2:MatchResults"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="matchCandidateWithSuspects">
+    <WL5G3N0:part name="matchCandidateWithSuspectsInput" type="WL5G3N2:MatchCandidateWithSuspectsInput"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="matchCandidateWithSuspectsResponse">
+    <WL5G3N0:part name="result" type="WL5G3N2:MatchResults"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="cleanseXML">
+    <WL5G3N0:part name="cleanserXMLInput" type="WL5G3N2:CleanserXMLInput"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="cleanseXMLResponse">
+    <WL5G3N0:part name="result" type="WL5G3N1:string"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="matchCandidateWithSuspectsXML">
+    <WL5G3N0:part name="matcherCandidateSuspectsXMLInput" type="WL5G3N2:MatcherCandidateSuspectsXMLInput"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="matchCandidateWithSuspectsXMLResponse">
+    <WL5G3N0:part name="result" type="WL5G3N1:string"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="matchCandidateXML">
+    <WL5G3N0:part name="matcherXMLInput" type="WL5G3N2:MatcherXMLInput"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="matchCandidateXMLResponse">
+    <WL5G3N0:part name="result" type="WL5G3N1:string"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="setTraceFile0">
+    <WL5G3N0:part name="string" type="WL5G3N1:string"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="setTraceFile0Response"/>
+  <WL5G3N0:message name="setTraceOff0"/>
+  <WL5G3N0:message name="setTraceOff0Response"/>
+  <WL5G3N0:message name="setTraceOn0"/>
+  <WL5G3N0:message name="setTraceOn0Response"/>
+  <WL5G3N0:portType name="DirectorWebServicePort">
+    <WL5G3N0:operation name="setTraceFile">
+      <WL5G3N0:input message="WL5G3N3:setTraceFile"/>
+      <WL5G3N0:output message="WL5G3N3:setTraceFileResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceOff">
+      <WL5G3N0:input message="WL5G3N3:setTraceOff"/>
+      <WL5G3N0:output message="WL5G3N3:setTraceOffResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceOn">
+      <WL5G3N0:input message="WL5G3N3:setTraceOn"/>
+      <WL5G3N0:output message="WL5G3N3:setTraceOnResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="cleanse">
+      <WL5G3N0:input message="WL5G3N3:cleanse"/>
+      <WL5G3N0:output message="WL5G3N3:cleanseResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="matchCandidate">
+      <WL5G3N0:input message="WL5G3N3:matchCandidate"/>
+      <WL5G3N0:output message="WL5G3N3:matchCandidateResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="matchCandidateWithSuspects">
+      <WL5G3N0:input message="WL5G3N3:matchCandidateWithSuspects"/>
+      <WL5G3N0:output message="WL5G3N3:matchCandidateWithSuspectsResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="cleanseXML">
+      <WL5G3N0:input message="WL5G3N3:cleanseXML"/>
+      <WL5G3N0:output message="WL5G3N3:cleanseXMLResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="matchCandidateWithSuspectsXML">
+      <WL5G3N0:input message="WL5G3N3:matchCandidateWithSuspectsXML"/>
+      <WL5G3N0:output message="WL5G3N3:matchCandidateWithSuspectsXMLResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="matchCandidateXML">
+      <WL5G3N0:input message="WL5G3N3:matchCandidateXML"/>
+      <WL5G3N0:output message="WL5G3N3:matchCandidateXMLResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceFile0">
+      <WL5G3N0:input message="WL5G3N3:setTraceFile0"/>
+      <WL5G3N0:output message="WL5G3N3:setTraceFile0Response"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceOff0">
+      <WL5G3N0:input message="WL5G3N3:setTraceOff0"/>
+      <WL5G3N0:output message="WL5G3N3:setTraceOff0Response"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceOn0">
+      <WL5G3N0:input message="WL5G3N3:setTraceOn0"/>
+      <WL5G3N0:output message="WL5G3N3:setTraceOn0Response"/>
+      <WL5G3N0:fault message="WL5G3N3:DirectorServiceException" name="DirectorServiceException"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="DirectorWebServicePort" type="WL5G3N3:DirectorWebServicePort">
+    <WL5G3N4:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="setTraceFile">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceOff">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceOn">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="cleanse">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="matchCandidate">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="matchCandidateWithSuspects">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="cleanseXML">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="matchCandidateWithSuspectsXML">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="matchCandidateXML">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceFile0">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceOff0">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="setTraceOn0">
+      <WL5G3N4:operation style="rpc"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="DirectorServiceException">
+        <WL5G3N4:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="DirectorServiceException" namespace="http://ejb.j2ee.director.trilliumsoftware.com" use="encoded"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="DirectorWebService">
+    <WL5G3N0:port binding="WL5G3N3:DirectorWebServicePort" name="DirectorWebServicePort">
+      <WL5G3N4:address location="http://vxp7602fprjk1:7001/DirectorWebService/Director"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

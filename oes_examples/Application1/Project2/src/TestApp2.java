@@ -6,25 +6,27 @@ import java.security.*;
 import oracle.security.jps.openaz.pep.*;
 import org.openliberty.openaz.azapi.pep.*;
 
-public class HelloOESworld {
+public class TestApp2 {
 
    public static void main(String[] args) {
 
       // user initiating Authorization request
-      Principal p = new WLSUserImpl("weblogic");
+      String userid="ssarkar";
+      Principal p = new WLSUserImpl(userid);
 
       Subject user = new Subject();
       user.getPrincipals().add(p);
 
       // Resource being accessed AppName/ResourceType/ResouceName
-      String resourceString = "captestapp/button/approvebutton";
+      String resourceString = "cap/labresources/ptes/reports";
 
       // Action initiated by the user
-      String action = "click";
+      String action = "view";
 
       // Environmental/Context attributes
       Map<String, String> env = new HashMap<String, String>();
-      env.put("l", "London");
+      env.put("selectedorg","112011");
+      //env.put("l", "London");
       while (true)
       {
          try {
@@ -37,7 +39,7 @@ public class HelloOESworld {
                                 resourceString,
                                 env).decide();
 
-            System.out.println("Request: {weblogic, " + action + ", "
+            System.out.println("Request: {"+ userid + "  "  + action + ", "
                      + resourceString
                      + "} \nResult: " + response.allowed());
 

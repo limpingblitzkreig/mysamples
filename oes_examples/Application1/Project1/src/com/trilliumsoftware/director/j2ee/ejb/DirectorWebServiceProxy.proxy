@@ -1,0 +1,356 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="../transfer/CleanseResults.java"/>
+      <url path="../transfer/CleanserInput.java"/>
+      <url path="../transfer/CleanserXMLInput.java"/>
+      <url path="../transfer/DirectorServer.java"/>
+      <url path="../transfer/DirectorServiceException.java"/>
+      <url path="../transfer/MatchCandidateInput.java"/>
+      <url path="../transfer/MatchCandidateWithSuspectsInput.java"/>
+      <url path="../transfer/MatcherCandidateSuspectsXMLInput.java"/>
+      <url path="../transfer/MatcherInput.java"/>
+      <url path="../transfer/MatcherXMLInput.java"/>
+      <url path="../transfer/MatchField.java"/>
+      <url path="../transfer/MatchFields.java"/>
+      <url path="../transfer/MatchRecord.java"/>
+      <url path="../transfer/MatchRecords.java"/>
+      <url path="../transfer/MatchResult.java"/>
+      <url path="../transfer/MatchResults.java"/>
+      <url path="DirectorWebService.java"/>
+      <url path="DirectorWebService.wsdl"/>
+      <url path="DirectorWebServicePort.java"/>
+      <url path="DirectorWebServicePort_Stub.java"/>
+      <url path="DirectorWebService_Impl.java"/>
+      <url path="DirectorWebService_internaldd.xml"/>
+      <url path="DirectorWebService_java_wsdl_mapping.xml"/>
+      <url path="DirectorWebService_saved_wsdl.wsdl"/>
+      <url path="DirectorWebServicePortPortClient.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="MTOM"/>
+      <value n="FIXED_WSDL" v="false"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+         </hash>
+      </hash>
+      <list n="PROXY_CLIENTS">
+         <url path="DirectorWebServicePortPortClient.java"/>
+      </list>
+      <value n="PROXY_MAPPING_URL"/>
+      <hash n="PROXY_PORTS">
+         <hash n="DirectorWebServicePort">
+            <value n="ACCESSES_DOC_WRAPPPED" v="false"/>
+            <value n="ACCESSES_RPC_ENCODED" v="true"/>
+            <value n="CLASS_NAME" v="com.trilliumsoftware.director.j2ee.ejb.DirectorWebServicePort"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="DirectorWebServicePort"/>
+            <hash n="OPERATIONS">
+               <hash n="cleanse">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="cleanseXML">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="matchCandidate">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="matchCandidateWithSuspects">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="matchCandidateWithSuspectsXML">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="matchCandidateXML">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="setTraceFile">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="setTraceFile0">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="setTraceOff">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="setTraceOff0">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="setTraceOn">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="setTraceOn0">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS"/>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="vxp7602fprjk1" port="7001" path="/DirectorWebService/Director"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="DirectorWebService"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://ejb.j2ee.director.trilliumsoftware.com"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../../../Project1.jpr"/>
+      <url n="PROXY_WSDL_URL" protocol="http" host="vxp7602fprjk1" port="7001" path="/DirectorWebService/Director" query="WSDL"/>
+      <hash n="REFERENCED_WEBSERVICE">
+         <list n="BD_">
+            <hash>
+               <value n="BD_DEFAULT_SOAP_INPUT_USE" v="0"/>
+               <value n="BD_DEFAULT_SOAP_OUTPUT_USE" v="0"/>
+               <value n="BD_DEFAULT_SOAP_STYLE" v="0"/>
+               <value n="BOUND_PORT_TYPE" v="{http://ejb.j2ee.director.trilliumsoftware.com}DirectorWebServicePort"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+               <value n="NAME" v="{http://ejb.j2ee.director.trilliumsoftware.com}DirectorWebServicePort"/>
+               <list n="OP_BINDINGS">
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="void.setTraceFile.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="void.setTraceOff"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="void.setTraceOn"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="java.com_trilliumsoftware_director_j2ee_transfer.CleanseResults.cleanse.java.com_trilliumsoftware_director_j2ee_transfer.CleanserInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="java.com_trilliumsoftware_director_j2ee_transfer.MatchResults.matchCandidate.java.com_trilliumsoftware_director_j2ee_transfer.MatchCandidateInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="java.com_trilliumsoftware_director_j2ee_transfer.MatchResults.matchCandidateWithSuspects.java.com_trilliumsoftware_director_j2ee_transfer.MatchCandidateWithSuspectsInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="java.lang.String.cleanseXML.java.com_trilliumsoftware_director_j2ee_transfer.CleanserXMLInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="java.lang.String.matchCandidateWithSuspectsXML.java.com_trilliumsoftware_director_j2ee_transfer.MatcherCandidateSuspectsXMLInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="java.lang.String.matchCandidateXML.java.com_trilliumsoftware_director_j2ee_transfer.MatcherXMLInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="void.setTraceFile0.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="void.setTraceOff0"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v=""/>
+                     <value n="BD_SOAP_INPUT_USE" v="0"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="0"/>
+                     <value n="BD_SOAP_STYLE" v="0"/>
+                     <value n="BOUND_OPERATION" v="void.setTraceOn0"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+            </hash>
+         </list>
+         <list n="BINDING_FILES"/>
+         <value n="GUID" v="ba8440d6-0131-1000-8003-ac1e15a3a2c1"/>
+         <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy$ProxyJavaWebService"/>
+         <list n="PO_">
+            <hash>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+               <value n="NAME" v="DirectorWebServicePort"/>
+               <value n="PORT_BINDING_NAME" v="{http://ejb.j2ee.director.trilliumsoftware.com}DirectorWebServicePort"/>
+               <list n="PORT_OPS">
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.setTraceFile.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.setTraceOff"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.setTraceOn"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.com_trilliumsoftware_director_j2ee_transfer.CleanseResults.cleanse.java.com_trilliumsoftware_director_j2ee_transfer.CleanserInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.com_trilliumsoftware_director_j2ee_transfer.MatchResults.matchCandidate.java.com_trilliumsoftware_director_j2ee_transfer.MatchCandidateInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.com_trilliumsoftware_director_j2ee_transfer.MatchResults.matchCandidateWithSuspects.java.com_trilliumsoftware_director_j2ee_transfer.MatchCandidateWithSuspectsInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.cleanseXML.java.com_trilliumsoftware_director_j2ee_transfer.CleanserXMLInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.matchCandidateWithSuspectsXML.java.com_trilliumsoftware_director_j2ee_transfer.MatcherCandidateSuspectsXMLInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.matchCandidateXML.java.com_trilliumsoftware_director_j2ee_transfer.MatcherXMLInput"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.setTraceFile0.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.setTraceOff0"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="void.setTraceOn0"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+               <url n="URL" protocol="http" host="vxp7602fprjk1" port="7001" path="/DirectorWebService/Director"/>
+            </hash>
+         </list>
+         <hash n="PROPERTY_GROUPS">
+            <hash n="WSDL_TO_JAVA_PROPERTIES">
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            </hash>
+         </hash>
+         <list n="PT_">
+            <hash>
+               <value n="AUTO_SERVICE_INTERFACE"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaPortType"/>
+               <value n="NAME" v="{http://ejb.j2ee.director.trilliumsoftware.com}DirectorWebServicePort"/>
+               <hash n="PROPERTY_GROUPS"/>
+               <value n="PT_CLASS" v="com.trilliumsoftware.director.j2ee.ejb.DirectorWebServicePortImpl"/>
+               <value n="PT_SERVICE_INTERFACE" v="com.trilliumsoftware.director.j2ee.ejb.DirectorWebServicePort"/>
+            </hash>
+         </list>
+         <url n="TARGET_PROJECT" path="../../../../../../Project1.jpr"/>
+         <value n="WS_ORIG_GEN_DIRECTION" v="TOP_DOWN"/>
+         <value n="WS_TARGET_NAMESPACE" v="http://ejb.j2ee.director.trilliumsoftware.com"/>
+         <value n="WS_URI" v="DirectorWebService"/>
+         <url n="WS_WSDL_FILE" protocol="http" host="vxp7602fprjk1" port="7001" path="/DirectorWebService/Director" query="WSDL"/>
+      </hash>
+      <list n="WRAPPER_METHOD_SIGS">
+         <string v="setTraceFile(java.lang.String)"/>
+         <string v="setTraceFileAsync(weblogic.wsee.async.AsyncPreCallContext,java.lang.String)"/>
+         <string v="setTraceOff()"/>
+         <string v="setTraceOffAsync(weblogic.wsee.async.AsyncPreCallContext)"/>
+         <string v="setTraceOn()"/>
+         <string v="setTraceOnAsync(weblogic.wsee.async.AsyncPreCallContext)"/>
+         <string v="cleanse(com.trilliumsoftware.director.j2ee.transfer.CleanserInput)"/>
+         <string v="cleanseAsync(weblogic.wsee.async.AsyncPreCallContext,com.trilliumsoftware.director.j2ee.transfer.CleanserInput)"/>
+         <string v="matchCandidate(com.trilliumsoftware.director.j2ee.transfer.MatchCandidateInput)"/>
+         <string v="matchCandidateAsync(weblogic.wsee.async.AsyncPreCallContext,com.trilliumsoftware.director.j2ee.transfer.MatchCandidateInput)"/>
+         <string v="matchCandidateWithSuspects(com.trilliumsoftware.director.j2ee.transfer.MatchCandidateWithSuspectsInput)"/>
+         <string v="matchCandidateWithSuspectsAsync(weblogic.wsee.async.AsyncPreCallContext,com.trilliumsoftware.director.j2ee.transfer.MatchCandidateWithSuspectsInput)"/>
+         <string v="cleanseXML(com.trilliumsoftware.director.j2ee.transfer.CleanserXMLInput)"/>
+         <string v="cleanseXMLAsync(weblogic.wsee.async.AsyncPreCallContext,com.trilliumsoftware.director.j2ee.transfer.CleanserXMLInput)"/>
+         <string v="matchCandidateWithSuspectsXML(com.trilliumsoftware.director.j2ee.transfer.MatcherCandidateSuspectsXMLInput)"/>
+         <string v="matchCandidateWithSuspectsXMLAsync(weblogic.wsee.async.AsyncPreCallContext,com.trilliumsoftware.director.j2ee.transfer.MatcherCandidateSuspectsXMLInput)"/>
+         <string v="matchCandidateXML(com.trilliumsoftware.director.j2ee.transfer.MatcherXMLInput)"/>
+         <string v="matchCandidateXMLAsync(weblogic.wsee.async.AsyncPreCallContext,com.trilliumsoftware.director.j2ee.transfer.MatcherXMLInput)"/>
+         <string v="setTraceFile0(java.lang.String)"/>
+         <string v="setTraceFile0Async(weblogic.wsee.async.AsyncPreCallContext,java.lang.String)"/>
+         <string v="setTraceOff0()"/>
+         <string v="setTraceOff0Async(weblogic.wsee.async.AsyncPreCallContext)"/>
+         <string v="setTraceOn0()"/>
+         <string v="setTraceOn0Async(weblogic.wsee.async.AsyncPreCallContext)"/>
+      </list>
+      <value n="WSDL_IS_LOCAL_COPY" v="false"/>
+   </hash>
+</jdevws:WebServiceProxy>
