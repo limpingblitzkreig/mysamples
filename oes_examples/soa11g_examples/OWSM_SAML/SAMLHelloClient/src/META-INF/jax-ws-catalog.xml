@@ -1,4 +1,0 @@
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-  <system systemId="http://virtual:8001/soa-infra/services/default/SAMLHello/HelloMediator_ep?WSDL"
-          uri="http://virtual:8001/soa-infra/services/default/SAMLHello/HelloMediator_ep?WSDL"/>
-</catalog>
