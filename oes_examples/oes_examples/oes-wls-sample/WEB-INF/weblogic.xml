@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.2/weblogic-web-app.xsd"
+	xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app">
+	<weblogic-version>10.3.5</weblogic-version>
+	<context-root>oes_examples</context-root>
+	<security-role-assignment>
+		<role-name>admin_role</role-name>
+		<principal-name>Administrators</principal-name>
+	</security-role-assignment>
+</weblogic-web-app>

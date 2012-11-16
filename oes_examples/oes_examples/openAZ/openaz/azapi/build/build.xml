@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir=".." default="build" name="azapi">
+
+    <property name="srcdir"  value="${basedir}/src"/>
+    
+    <target name="compile">
+    
+        <mkdir dir="${basedir}/bin"/>
+        <echo message="${basedir}"/>
+    	<echo message="${srcdir}"/>
+        <javac srcdir="${srcdir}" destdir="${basedir}/bin"/>
+    
+    </target>
+    
+    <target name="build" depends="compile">
+    
+        <jar basedir="${basedir}/bin" destfile="${basedir}/build/openliberty-openaz-azapi.jar"/>
+    
+    </target>
+    
+    <target name="clean">
+    
+        <delete file="${basedir}/build/openliberty-openaz-azapi.jar"/>
+        <delete dir="${basedir}/bin"/>
+    
+    </target>
+
+       
+</project>

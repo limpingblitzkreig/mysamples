@@ -29,7 +29,7 @@ public class TestApp {
       // Environmental/Context attributes
       Map<String, String> env = new HashMap<String, String>();
       //env.put("l", "London");
-      env.put("selectedorg", "11201");
+      env.put("selectedorg", "11202");
     //env.put("ptesviewreport","1");
       //env.put("l","Timbuktu");
       

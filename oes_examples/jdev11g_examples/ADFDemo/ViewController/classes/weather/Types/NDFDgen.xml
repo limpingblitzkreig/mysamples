@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.59.23"
+          id="NDFDgen" Package="weather.Types" BeanClass="weather.Types.NDFDgen"
+          isJavaBased="false">
+  <AccessorAttribute id="weatherParameters" IsCollection="false"
+                     BeanClass="weather.Types.NDFDgen.weatherParameters"/>
+</JavaBean>

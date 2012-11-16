@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir=".." default="build" name="pdp">
+
+
+  <property name="srcdir"  value="${basedir}/src"/>
+  <property name="openaz.home" value="${basedir}/.."/>
+  <property name="libdir"  value="${openaz.home}/lib"/>
+  <property name="pdplibdir"  value="${openaz.home}/pdp/lib"/>
+    
+    <target name="compile">
+    
+        <echo message="Java Version: ${java.version}"/>
+        <mkdir dir="${basedir}/bin"/>
+        <echo message="${basedir}"/>
+        <javac srcdir="${srcdir}" destdir="${basedir}/bin">
+        
+            <classpath>
+            
+                <path location="${openaz.home}/azapi/build/openliberty-openaz-azapi.jar"/>
+        	<fileset dir="${libdir}">
+			<include name="**/**"/>
+		</fileset>
+        	<fileset dir="${pdplibdir}">
+			<include name="**/**"/>
+		</fileset>
+            
+            </classpath>
+        
+        </javac>
+    
+    </target>
+    
+    <target name="build" depends="compile">
+    
+        <jar basedir="${basedir}/bin" destfile="${basedir}/build/openliberty-openaz-pdp.jar"/>
+    
+    </target>
+    
+    <target name="clean">
+    
+        <delete file="${basedir}/build/openliberty-openaz-pdp.jar"/>
+        <delete dir="${basedir}/bin"/>
+    
+    </target>
+
+   
+</project>

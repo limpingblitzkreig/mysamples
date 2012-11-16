@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.59.23"
+          id="DOMImplementation" Package="org.w3c.dom"
+          BeanClass="org.w3c.dom.DOMImplementation" isJavaBased="true">
+  <MethodAccessor IsCollection="false" Type="boolean" id="hasFeature"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="p0" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="p1" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="org.w3c.dom.DocumentType"
+                  BeanClass="org.w3c.dom.DocumentType" id="createDocumentType"
+                  ReturnNodeName="DocumentType">
+    <ParameterInfo id="p0" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="p1" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="p2" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="org.w3c.dom.Document"
+                  BeanClass="org.w3c.dom.Document" id="createDocument"
+                  ReturnNodeName="Document">
+    <ParameterInfo id="p0" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="p1" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="p2" Type="org.w3c.dom.DocumentType" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Object" id="getFeature"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="p0" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="p1" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+</JavaBean>

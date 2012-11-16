@@ -99,7 +99,7 @@
          </hash>
          <hash n="testapp">
             <value n="custom" v="false"/>
-            <value n="javaOptions" v="-Djava.util.logging.config.file=C:\Oracle\fmw\oes_client\oes_sm_instances\testWSSM\config\logging.properties -Doracle.security.jps.config=C:\Oracle\fmw\oes_client\oes_sm_instances\testWSSM\config\wsclient\jps-config.xml"/>
+            <value n="javaOptions" v="-Djava.util.logging.config.file=../logging.properties -Doracle.security.jps.config=C:\Oracle\fmw\oes_client\oes_sm_instances\testWSSM\config\wsclient\jps-config.xml"/>
             <value n="JavaScriptRunConfigurationEnableDebugStatement" v="true"/>
             <value n="JavaScriptRunConfigurationStopInChrome" v="true"/>
             <value n="JavaScriptRunConfigurationStopOnError" v="true"/>
@@ -142,7 +142,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Oes-client.jar"/>
+            <value n="id" v="Oes-ws-client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -150,11 +150,11 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../Oracle/fmw/oes_client/modules/oracle.oes.sm_11.1.1/oes-client.jar" jar-entry=""/>
+                  <url protocol="jar" path="file:/C:/Oracle/fmw/oes_client/modules/oracle.oes.sm_11.1.1/oes-ws-client.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Oes-client.jar"/>
-               <value n="id" v="Oes-client.jar"/>
+               <value n="description" v="Oes-ws-client.jar"/>
+               <value n="id" v="Oes-ws-client.jar"/>
                <value n="locked" v="true"/>
             </hash>
          </list>
@@ -165,7 +165,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Oes-client.jar"/>
+            <value n="id" v="Oes-ws-client.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

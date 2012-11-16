@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+    <bean id="pep" class="org.openliberty.openaz.pep.PepRequestFactory">
+        <constructor-arg type="java.lang.String" value="CustomMappers"/>
+        <constructor-arg ref="azService"/>
+        <property name="actionFactory">
+            <ref bean="actionFactory"/>
+        </property>
+    </bean>
+    
+    
+    <bean id="azService" class="org.openliberty.openaz.pdp.provider.SimpleConcreteService"/>
+
+    <!-- Factories for Each Category -->
+    <bean id="actionFactory" class="org.openliberty.openaz.pep.ActionFactory">
+        <property name="mappers">
+            <list>
+                <ref bean="reverseMapper"/>
+            </list>
+        </property>
+    </bean>
+   
+    
+    <!-- Mapper -->
+    <bean id="reverseMapper" class="test.objects.ReverseStringMapper"/>
+    
+    
+
+</beans>
+
