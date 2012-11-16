@@ -1,4 +1,0 @@
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-  <system systemId="http://localhost:7101/TestSOAPS3-service-context-root/HelloImplPort?WSDL"
-          uri="http://localhost:7101/TestSOAPS3-service-context-root/HelloImplPort?WSDL"/>
-</catalog>

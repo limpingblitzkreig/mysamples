@@ -1,8 +1,0 @@
-#!/bin/sh
-# runXACMLSample.sh
-#
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved. 
-
-CLSPATH="@external_jars@:`dirname $0`/@project_name@.jar"
-
-java -cp $CLSPATH -Dwssm.url="@wssm.url@" oracle.security.jps.xacml.sample.ConsoleMenu

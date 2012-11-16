@@ -1,1 +1,0 @@
-migrateSecurityStore(type="appPolicies",src="sourceContext",dst="destinationContext",configFile="/opt/oracle/OES/migration/jps-config.xml",srcApp="cap",dstApp="cap")
