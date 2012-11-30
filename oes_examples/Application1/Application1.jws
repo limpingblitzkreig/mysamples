@@ -19,5 +19,6 @@
    </hash>
    <list n="listOfChildren">
       <hash><url n="URL" path="Project2/Project2.jpr"/></hash>
+      <hash><url n="URL" path="xacml/xacml.jpr"/></hash>
    </list>
 </jws:workspace>
