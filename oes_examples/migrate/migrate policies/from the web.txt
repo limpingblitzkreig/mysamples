@@ -1,0 +1,69 @@
+Exporting of Policy to a xml file
+Steps to migrate policies to a xml file are as follows:
+
+Note: My OES server is installed on linux enviroment.
+
+I. On the OES server  installed box create a folder migration. Eg: /OES/migration
+
+II. Create a file jps-config.xml Eg: /OES/migration/jps-config.xml
+
+III. Copy the content below to the jps-config.xml file create above and edit the DB connection parameters.
+
+<?xml version=”1.0? encoding=”UTF-8? standalone=”yes”?>
+<jpsConfig xmlns=”http://xmlns.oracle.com/oracleas/schema/11/jps-config-11_1.xsd” xmlns:xsi=”http://www.w3.org/2001/XMLSchema-instance” xsi:schemaLocation=”http://xmlns.oracle.com/oracleas/schema/11/jps-config-11_1.xsd”>
+<property value=”off” name=”oracle.security.jps.jaas.mode”/>
+
+<serviceProviders>
+<serviceProvider class=”oracle.security.jps.internal.policystore.xml.XmlPolicyStoreProvider” name=”policystore.xml.provider” type=”POLICY_STORE”>
+<description>XML-based PolicyStore Provider</description>
+</serviceProvider>
+<serviceProvider class=”oracle.security.jps.internal.policystore.ldap.LdapPolicyStoreProvider” name=”policystore.provider” type=”POLICY_STORE”/>
+</serviceProviders>
+<serviceInstances>
+
+<!– Source DB-based policy store instance –>
+<serviceInstance provider=”policystore.provider” name=”policystore.db.source”>
+<description>DB Based Policy Store Service Instance</description>
+<property name=”policystore.type” value=”DB_ORACLE”/>
+<property name=”jdbc.url” value=”jdbc:oracle:thin:@dbhost:1521:SID”/>
+<property name=”jdbc.driver” value=”oracle.jdbc.driver.OracleDriver”/>
+<property name=”security.principal” value=”xxx_APM”/>
+<property name=”security.credential” value=”password”/>
+<property name=”oracle.security.jps.ldap.root.name” value=”cn=jpsroot”/>
+<property name=”oracle.security.jps.farm.name” value=”cn=oes_domain”/>
+</serviceInstance>
+<!– Destination XML-based policy store instance –>
+<serviceInstance name=”dst.xml” provider=”policystore.xml.provider” location=”/OES/migration/system-jazn-data.xml”>
+<description>File Based Policy Store Service Instance</description>
+</serviceInstance>
+</serviceInstances>
+<jpsContexts default=”default”>
+<jpsContext name=”default”>
+<serviceInstanceRef ref=”policystore.db.source”/>
+</jpsContext>
+<jpsContext name=”sourceContext”>
+<serviceInstanceRef ref=”policystore.db.source”/>
+</jpsContext>
+<jpsContext name=”destinationContext”>
+<serviceInstanceRef ref=”dst.xml”/>
+</jpsContext>
+</jpsContexts>
+</jpsConfig>
+
+IV. Copy the system-jazn-data.xml from the following location $ORACLE_HOME/user_projects/domains/oes_domain/config/fmwconfig to /OES/migration
+
+V. On the OES server  installed box navigate to the following location $ORACLE_HOME/Oracle_IDM1/common/bin/
+
+VI. Run the follwing command ./wlst.sh
+
+VII. Connect the the weblogic domain where OES server is deployed. Eg: connect(‘weblogic’,'password’,'t3://localhost:7001')
+
+VIII. Execute the following command
+
+If you need to migrate entire policystore use this command:
+Eg: migrateSecurityStore(type=”policyStore”,src=”sourceContext”,dst=”destinationContext”,configFile=”OES/migration/jps-config.xml”)
+
+If you need to migration only a specific application policy:
+  Eg:  migrateSecurityStore(type=”appPolicies”, src=”sourceContext”,dst=”destinationContext”,configFile=”/OES/migration/jps-config.xml”,srcApp=”Application Name”, dstApp=”Application Name”,overWrite=”true”)
+
+Verify the  system-jazn-data.xml file and check if the content are updated.

@@ -1,0 +1,6 @@
+migrateSecurityStore
+(type="appPolicies", src="sourceContext",
+dst="destinationContext",
+configFile="/opt/ora/oespoc/migrate/jps-config.xml",
+srcApp="CAP", dstApp="CAP",
+overWrite="false")

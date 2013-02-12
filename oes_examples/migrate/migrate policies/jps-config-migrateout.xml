@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpsConfig xmlns="http://xmlns.oracle.com/oracleas/schema/11/jps-config-11_1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schema-major-version="11" schema-minor-version="1" xsi:schemaLocation="http://xmlns.oracle.com/oracleas/schema/11/jps-config-11_1.xsd jps-config-11_1.xsd">
+<property name="oracle.security.jps.jaas.mode" value="off"/>
+
+<serviceProviders>
+<serviceProvider class="oracle.security.jps.internal.policystore.xml.XmlPolicyStoreProvider" name="policystore.xml.provider" type="POLICY_STORE">
+<description>XML-based PolicyStore Provider</description>
+</serviceProvider>
+<serviceProvider class="oracle.security.jps.internal.policystore.ldap.LdapPolicyStoreProvider" name="policystore.provider" type="POLICY_STORE"/>
+</serviceProviders>
+<serviceInstances>
+
+
+
+<serviceInstance provider="policystore.provider" name="policystore.db.source">
+<description>DB Based Policy Store Service Instance</description>
+<property name="policystore.type" value="DB_ORACLE"/>
+<property name="jdbc.url" value="jdbc:oracle:thin:@cappoes00:1521:cappoes"/>
+<property name="jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
+<property name="security.principal" value="CAPOES_OPSS"/>
+<property name="security.credential" value="welcome1"/>
+<property name="oracle.security.jps.ldap.root.name" value="cn=jpsroot"/>
+<property name="oracle.security.jps.farm.name" value="cn=oesadmin_domain"/>
+</serviceInstance>
+
+
+<serviceInstance name="dst.xml" provider="policystore.xml.provider" location="/opt/ora/oespoc/migrate/cap-jazn-data.xml">
+<description>File Based Policy Store Service Instance</description>
+</serviceInstance>
+</serviceInstances>
+
+<jpsContexts default="default">
+<jpsContext name="default">
+	<serviceInstanceRef ref="policystore.db.source"/>
+</jpsContext>
+<jpsContext name="sourceContext">
+	<serviceInstanceRef ref="policystore.db.source"/>
+</jpsContext>
+<jpsContext name="destinationContext">
+<serviceInstanceRef ref="dst.xml"/>
+</jpsContext>
+
+</jpsContexts>
+</jpsConfig>
