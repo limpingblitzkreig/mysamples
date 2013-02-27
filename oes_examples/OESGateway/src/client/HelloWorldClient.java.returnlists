@@ -1,0 +1,406 @@
+package client;
+
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
+
+import com.sun.jersey.core.util.MultivaluedMapImpl;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+import java.util.Map;
+
+import java.util.Set;
+
+import javax.ws.rs.core.MultivaluedMap;
+
+import oracle.jdbc.driver.OracleDriver;
+
+import oracle.sql.ARRAY;
+import oracle.sql.ArrayDescriptor;
+
+//import org.codehaus.jettison.json.JSONArray;
+
+
+public class HelloWorldClient {
+  public HelloWorldClient() {
+  }
+
+  public static String sayHello() {
+
+    Client c = Client.create();
+    System.out.println("** Simple GET request .... **");
+    WebResource resource =
+      c.resource("http://192.168.2.128:9610/oesgateway/sayHello");
+    String response = resource.get(String.class);
+
+    return (response);
+  }
+
+  public static String sayHelloWithName(String name) {
+
+    Client c = Client.create();
+    System.out.println("** Simple GET request with Query Param **");
+    WebResource resource =
+      c.resource("http://192.168.2.128:9610/oesgateway/sayHelloWithName");
+    String response = resource.queryParam("name", name).get(String.class);
+
+    return (response);
+  }
+  
+  public static void sayHelloReturnList(String name, oracle.sql.ARRAY inarray, oracle.sql.ARRAY[] outarray) {
+  String response = "no response";
+   // Client c = Client.create();
+    System.out.println("**sayHelloReturnList Simple GET request with Query Param **");
+   // WebResource resource =
+    //  c.resource("http://192.168.2.128:9610/oesgateway/sayHelloWithName");
+    //String response = resource.queryParam("name", name).get(String.class);
+
+    try{
+      String[] values = (String[])inarray.getArray();
+      Connection conn = new OracleDriver().defaultConnection();
+      ArrayDescriptor descriptor =
+            ArrayDescriptor.createDescriptor( inarray.getSQLTypeName(), conn );
+      outarray[0] = new ARRAY( descriptor, conn, values );
+
+      
+    }catch(Exception ex){
+      System.out.println("Exception" + ex.getMessage());
+    }
+    
+  }
+
+  public static String sayHelloWithNames(java.sql.Array names) {
+
+    String response = "no response";
+
+    MultivaluedMap<String, String> params = new MultivaluedMapImpl();
+
+    try {
+
+      Object obj = names.getArray();
+      String[] strArray = (String[])obj; // cast it to an array of String
+      int i = 0;
+      while (i < strArray.length) {
+        System.out.println("integer element = " + strArray[i]);
+        String key = strArray[i];
+        String value = "";
+        if (i + 1 >= strArray.length) {
+          System.out.println("Error: missing value for " + key +
+                             "setting to empty string");
+        } else {
+          value = strArray[i + 1];
+          i++;
+        }
+        params.add(key, value);
+        i++;
+      }
+
+      /*Iterator it = names.iterator();
+    while(it.hasNext()){
+      String key = (String)it.next();
+      String value = "";
+      if (!it.hasNext()){
+          System.out.println("Error: missing value for " + key + "setting to empty string");
+      } else {
+        value = (String)it.next();
+      }
+      params.add(key, value);
+    }*/
+
+      Client c = Client.create();
+      System.out.println("** Simple GET request with multiple Query Params **");
+      System.out.println(params.toString());
+      WebResource resource =
+        c.resource("http://192.168.2.128:9610/oesgateway/sayHelloWithNames");
+      response = resource.queryParams(params).get(String.class);
+
+    } catch (Exception ex) {
+      System.out.println(ex.getMessage());
+    }
+
+    return (response);
+  }
+  
+  /*public static String sayHelloWithNamesJSON(java.sql.Array names) {
+
+    String response = "no response";
+    JSONArray ja = new JSONArray();
+
+    MultivaluedMap<String, String> params = new MultivaluedMapImpl();
+
+    try {
+
+      Object obj = names.getArray();
+      String[] strArray = (String[])obj; // cast it to an array of String
+      int i = 0;
+      while (i < strArray.length) {
+        System.out.println("integer element = " + strArray[i]);
+        String key = strArray[i];
+        String value = "";
+        if (i + 1 >= strArray.length) {
+          System.out.println("Error: missing value for " + key +
+                             "setting to empty string");
+        } else {
+          value = strArray[i + 1];
+          i++;
+        }
+        params.add(key, value);
+        i++;
+      }
+
+      Client c = Client.create();
+      System.out.println("** sayHelloWithNamesJSON Simple GET request with multiple Query Params **");
+      System.out.println(params.toString());
+      WebResource resource =
+        c.resource("http://192.168.2.128:9610/oesgateway/sayHelloWithNamesJSON");
+      ja = resource.queryParams(params).get(JSONArray.class);
+      System.out.println("JSONArray" + ja.toString());
+    } catch (Exception ex) {
+      System.out.println(ex.getMessage());
+    }
+
+    return (response);
+  }
+*/
+  public static String isAllowed() {
+
+    Client c = Client.create();
+    System.out.println("** isAllowed(): Simple GET on resource with user as a query param **");
+    WebResource resource =
+      c.resource("http://192.168.2.128:9610/oesgateway/HelloOesWorld/MyResourceType/MyResource/write");
+    MultivaluedMap attrs = new MultivaluedMapImpl();
+    attrs.add("user","weblogic");
+    attrs.add("level","4");
+    String response = resource.queryParams(attrs).get(String.class);
+
+    return (response);
+  }
+  
+  //[true, [User_Constraint, [speciality_constraint, speciality like ''%Doctor%', leve_constraint, level<4]], [Salary_Constraint, [whereClause2, salary <1000 AND expireDate > 2011, whereClause1, deptno=30 AND enabled=true]]]
+  public static String getAllowed(String responseString){
+    String allowed = "false";
+    if ( responseString != null && responseString.length() >=1 ){
+      allowed = responseString.substring(0,responseString.indexOf(","));
+    }
+    return(allowed);
+  }
+  
+
+  //c.resource("http://192.168.2.128:9610/oesgateway /HelloOesWorld/MyResourceType/MyResource/read ?user=" + user);
+
+  public static String isAllowed(String user, String url,
+                                String resource,
+                                String action, java.sql.Array attrs) {
+
+    String response = "NO RESPONSE";
+    ArrayList responseList = new ArrayList();
+    MultivaluedMap<String, String> params = new MultivaluedMapImpl();
+    try {
+      Object obj = attrs.getArray();
+      String[] strArray = (String[])obj; // cast it to an array of String
+      int i = 0;
+
+      while (i < strArray.length) {
+        System.out.println("integer element = " + strArray[i]);
+        String key = strArray[i];
+        String value = "";
+        if (i + 1 >= strArray.length) {
+          System.out.println("Error: missing value for " + key +
+                             "setting to empty string");
+        } else {
+          value = strArray[i + 1];
+          i++;
+        }
+        params.add(key, value);
+        i++;
+      }
+
+      Client c = Client.create();
+      System.out.println("** isAllowed(): Simple GET on resource with user as a query param **");
+      WebResource r =
+        c.resource(url + "/" + resource + "/" + action);
+
+      params.add("user", user);
+      response = r.queryParams(params).get(String.class);
+    } catch (Exception ex) {
+      System.out.println("Error calling out to OES " + ex.getMessage());
+    }
+
+    return (response);
+  }
+  
+  public static void isAllowedWithObligations(String user, String url,
+                                String resource,
+                                String action, oracle.sql.ARRAY attrs,oracle.sql.ARRAY[] p_out_array) {
+
+    String response = "NO RESPONSE";
+   ArrayList responseList = new ArrayList();
+    MultivaluedMap<String, String> params = new MultivaluedMapImpl();
+    /*try {
+      Object obj = attrs.getArray();
+      String[] strArray = (String[])obj; // cast it to an array of String
+      int i = 0;
+
+      while (i < strArray.length) {
+        System.out.println("integer element = " + strArray[i]);
+        String key = strArray[i];
+        String value = "";
+        if (i + 1 >= strArray.length) {
+          System.out.println("Error: missing value for " + key +
+                             "setting to empty string");
+        } else {
+          value = strArray[i + 1];
+          i++;
+        }
+        params.add(key, value);
+        i++;
+      }*/
+
+    try{
+      
+      String[] values = {"table_constraints","dept","deptno<30"};
+      //String[] values = (String[])attrs.getArray();
+      Connection conn = new OracleDriver().defaultConnection();
+      ArrayDescriptor descriptor =
+            ArrayDescriptor.createDescriptor( attrs.getSQLTypeName(), conn );
+      p_out_array[0] = new ARRAY( descriptor, conn, values );
+      
+      Client c = Client.create();
+      System.out.println("** isAllowed(): Simple GET on resource with user as a query param **");
+      WebResource r =
+        c.resource(url + "/" + resource + "/" + action);
+
+      params.add("user", user);
+      params.add("level","4");
+      response = r.queryParams(params).get(String.class);
+    
+      
+    } catch (Exception ex) {
+      System.out.println("Error calling out to OES " + ex.getMessage());
+      String[] values = {"Exception","Exception","Exception"};
+      try{
+      //String[] values = (String[])attrs.getArray();
+      Connection conn = new OracleDriver().defaultConnection();
+      ArrayDescriptor descriptor =
+            ArrayDescriptor.createDescriptor( attrs.getSQLTypeName(), conn );
+      p_out_array[0] = new ARRAY( descriptor, conn, values );
+      }catch(Exception ex1){
+        System.out.println("Error calling out to OES " + ex1.getMessage());
+
+      }
+      
+    }
+
+  }
+  
+
+  public static void main(String[] args) {
+
+    Map m = new HashMap();
+    m.put("a", "A");
+    m.put("b","B");
+    
+    System.out.println(sayHello());
+
+    System.out.println(sayHelloWithName("Kenny"));
+
+    ArrayList a = new ArrayList();
+    a.add("name");
+    a.add("Kenny");
+    a.add("name");
+    a.add("Greorge");
+    a.add("name");
+    a.add("Harry");
+    a.add("level");
+    a.add("4");
+    HelloWorldClient hwc = new HelloWorldClient();
+    java.sql.Array sa = hwc.getMySqlArray(a);
+    //System.out.println(a);
+    System.out.println(sayHelloWithNames(sa));
+    //c.resource("http://192.168.2.128:9610/oesgateway /HelloOesWorld/MyResourceType/MyResource/read ?user=" + user);
+    
+    //System.out.println(sayHelloWithNamesJSON(sa));
+
+    System.out.println(isAllowed());
+
+    a = new ArrayList();
+    a.add("level");
+    a.add("4");
+    a.add("speciality");
+    a.add("Cardiology");
+    hwc = new HelloWorldClient();
+    sa = hwc.getMySqlArray(a);
+    System.out.println(isAllowed("weblogic","http://192.168.2.128:9610/oesgateway",
+                                  "HelloOesWorld/MyResourceType/MyResource", "write", sa));
+
+
+  }
+
+  public MySqlArray getMySqlArray(ArrayList a) {
+    MySqlArray msa = new MySqlArray(a);
+
+    return (msa);
+  }
+
+  private class MySqlArray implements java.sql.Array {
+
+    ArrayList al = null;
+
+    public MySqlArray(ArrayList in_al) {
+      al = in_al;
+    }
+
+    public String getBaseTypeName() {
+      return null;
+    }
+
+    public int getBaseType() {
+      return 0;
+    }
+
+    public Object getArray() {
+
+
+      return al.toArray(new String[al.size()]);
+    }
+
+    public Object getArray(java.util.Map<String, Class<?>> map) {
+      return null;
+    }
+
+    public Object getArray(long index, int count) {
+      return null;
+    }
+
+    public Object getArray(long index, int count,
+                           java.util.Map<String, Class<?>> map) {
+      return null;
+    }
+
+    public ResultSet getResultSet() {
+      return null;
+    }
+
+    public ResultSet getResultSet(java.util.Map<String, Class<?>> map) {
+      return null;
+    }
+
+    public ResultSet getResultSet(long index, int count) {
+      return null;
+    }
+
+    public ResultSet getResultSet(long index, int count,
+                                  java.util.Map<String, Class<?>> map) {
+      return null;
+    }
+
+    public void free() {
+    }
+  }
+}
