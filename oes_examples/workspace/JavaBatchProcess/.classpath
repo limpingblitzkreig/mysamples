@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry output="classes" kind="src" path="JavaBatchProcess"/>
+	<classpathentry sourcepath="JRE_SRC" kind="var" rootpath="JRE_SRCROOT" path="JRE_LIB"/>
+	<classpathentry kind="lib" path="C:/temp/JavaBatchProcessUNIX/lib/activation.jar"/>
+	<classpathentry kind="lib" path="C:/temp/JavaBatchProcessUNIX/lib/ifxjdbc.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry sourcepath="C:/temp/Production_support_web/CAPLib/SecurityServicesEJB" kind="lib" path="C:/CAPLibDist/SecurityServicesEJB.jar"/>
+	<classpathentry kind="lib" path="C:/CAPLibDist/j2ee.jar"/>
+	<classpathentry kind="lib" path="C:/CAPLibDist/j2ee1_3_1.jar"/>
+	<classpathentry kind="lib" path="C:/CAPLibDist/core.jar"/>
+	<classpathentry kind="lib" path="C:/CAPLibDist/weblogic.jar"/>
+	<classpathentry sourcepath="C:/temp/Production_support_web/CAPLib/AppLibJava" kind="lib" path="C:/CAPLibDist/AppLibJava.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

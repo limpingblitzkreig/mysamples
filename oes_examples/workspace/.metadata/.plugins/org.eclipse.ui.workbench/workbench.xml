@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench version="2.0" progressCount="13">
+<workbenchAdvisor/>
+<window maximized="true" x="2" y="1" width="1022" height="722">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="126" y="22"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="121" y="22"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="95" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="59" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="59" y="22"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="180" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ant.ui.internal.editor.AntEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page label="Workspace - Java" focus="true">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder expanded="2" appearance="1">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor title="TestSecurityServiceEJB.java" name="TestSecurityServiceEJB.java" id="org.eclipse.jdt.ui.CompilationUnitEditor" tooltip="TestEJBS/org/cap/TestSecurityServiceEJB.java" partName="TestSecurityServiceEJB.java" workbook="DefaultEditorWorkbook" focus="true" path="C:/Users/ssarkar/workspace/TestEJBS/org/cap/TestSecurityServiceEJB.java">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TestEJBS/org/cap/TestSecurityServiceEJB.java"/>
+</editor>
+<editor title="SecurityConstants.java" name="SecurityConstants.java" id="org.eclipse.jdt.ui.CompilationUnitEditor" tooltip="SecurityServiceEJB/org/cap/services/securityservice/util/SecurityConstants.java" partName="SecurityConstants.java" workbook="DefaultEditorWorkbook" path="C:/temp/Production_support_web/CAPLib/SecurityServicesEJB/org/cap/services/securityservice/util/SecurityConstants.java">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SecurityServiceEJB/org/cap/services/securityservice/util/SecurityConstants.java"/>
+</editor>
+<editor title="ReplicaAwareRemoteRef.class" name="ReplicaAwareRemoteRef.class" id="org.eclipse.jdt.ui.ClassFileEditor" tooltip="weblogic.rmi.cluster.ReplicaAwareRemoteRef" partName="ReplicaAwareRemoteRef.class" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/weblogic.jar&lt;weblogic.rmi.cluster(ReplicaAwareRemoteRef.class"/>
+</editor>
+<editor title="VirtualResources.class" name="VirtualResources.class" id="org.eclipse.jdt.ui.ClassFileEditor" tooltip="org.cap.services.securityservice.auth.VirtualResources" partName="VirtualResources.class" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/AppLibJava.jar&lt;org.cap.services.securityservice.auth(VirtualResources.class"/>
+</editor>
+<editor title="AccessControlService.ejb" name="AccessControlService.ejb" id="org.eclipse.ui.DefaultTextEditor" tooltip="SecurityServiceEJB/org/cap/services/securityservice/auth/AccessControlService.ejb" partName="AccessControlService.ejb" workbook="DefaultEditorWorkbook" path="C:/temp/Production_support_web/CAPLib/SecurityServicesEJB/org/cap/services/securityservice/auth/AccessControlService.ejb">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SecurityServiceEJB/org/cap/services/securityservice/auth/AccessControlService.ejb"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState org.eclipse.debug.ui.variablesView.SASH_WEIGHTS-Length="2" org.eclipse.debug.ui.variablesView.SASH_WEIGHTS-0="684" org.eclipse.debug.ui.variablesView.SASH_WEIGHTS-1="315"/>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Hierarchy">
+<viewState view="2" orientation="0" ratio="350" vertical_scroll="0" workingSetName="" hidefields="false" hidestatic="false" hidenonpublic="false" hidelocaltypes="false" showinherited="false" sortbydefiningtype="false" mv_vertical_scroll="0" org.eclipse.jdt.ui.packages.linktypehierarchytoeditor="0"/>
+</view>
+<view id="org.eclipse.ui.views.ResourceNavigator" partName="Navigator">
+<viewState sorter="1" LINK_NAVIGATOR_TO_EDITOR="0">
+<filters>
+<filter element="*.class" isEnabled="false"/>
+<filter element=".*" isEnabled="false"/>
+</filters>
+<expanded>
+<element path="/AppLibJava"/>
+<element path="/SecurityServiceEJB"/>
+<element path="/SecurityServiceEJB/org"/>
+<element path="/SecurityServiceEJB/org/cap"/>
+<element path="/SecurityServiceEJB/org/cap/services"/>
+<element path="/SecurityServiceEJB/org/cap/services/securityservice"/>
+<element path="/SecurityServiceEJB/org/cap/services/securityservice/auth"/>
+<element path="/SecurityServiceEJB/org/cap/services/securityservice/util"/>
+<element path="/TestEJBS"/>
+<element path="/TestEJBS/org"/>
+<element path="/TestEJBS/org/cap"/>
+</expanded>
+<selection>
+<element path="/TestEJBS/org/cap/TestSecurityServiceEJB.java"/>
+</selection>
+</viewState>
+</view>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState>
+<view IMemento.internal.id=""/>
+<view IMemento.internal.id="org.eclipse.jdt.ui.JavaSearchResultPage" org.eclipse.search.resultpage.layout="2" org.eclipse.jdt.search.resultpage.grouping="3" org.eclipse.jdt.search.resultpage.sorting="1" org.eclipse.jdt.search.resultpage.filters="0" org.eclipse.jdt.search.resultpage.limit_enabled="TRUE" org.eclipse.jdt.search.resultpage.limit="1000"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState>
+<isTrackingSelection value="false"/>
+</viewState>
+</view>
+<view id="org.eclipse.ant.ui.views.AntView" partName="Ant">
+<viewState>
+<project path="/JavaBatchProcessUNIX/build.xml" name="JavaBatchProcessUNIX" default="usage" error="false"/>
+<filterInternalTargets value="false"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState columnWidth0="19" columnWidth1="200" columnWidth2="75" columnWidth3="150" columnWidth4="60" verticalPosition="0" horizontalPosition="0">
+<selection/>
+</viewState>
+</view>
+</views>
+<perspectives activePerspective="org.eclipse.jdt.ui.JavaPerspective" activePart="org.eclipse.ui.views.ResourceNavigator">
+<perspective version="0.016" editorAreaVisible="1" fixed="0">
+<descriptor id="org.eclipse.jdt.ui.JavaPerspective" label="Java" class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.openExternalFile"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
+<show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<show_view_action id="org.eclipse.jdt.ui.SourceView"/>
+<show_view_action id="org.eclipse.jdt.ui.JavadocView"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewInterfaceCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewEnumCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewAnnotationCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSourceFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSnippetFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<new_wizard_action id="org.eclipse.jdt.junit.wizards.NewTestCaseCreationWizard"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<view id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<view id="org.eclipse.ui.views.ResourceNavigator"/>
+<view id="org.eclipse.ant.ui.views.AntView"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.jdt.ui.JavadocView"/>
+<view id="org.eclipse.jdt.ui.SourceView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<layout>
+<mainWindow>
+<info part="left" folder="true">
+<folder activePageID="org.eclipse.ui.views.ResourceNavigator" expanded="2" appearance="2">
+<page label="LabelNotFound" content="org.eclipse.jdt.ui.PackageExplorer"/>
+<page label="Hierarchy" content="org.eclipse.jdt.ui.TypeHierarchy"/>
+<page label="Navigator" content="org.eclipse.ui.views.ResourceNavigator"/>
+<page label="LabelNotFound" content="org.eclipse.jdt.junit.ResultView"/>
+<page label="Ant" content="org.eclipse.ant.ui.views.AntView"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="2"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.internal.ViewStack@1037df4" relative="left" relationship="2" ratioLeft="754" ratioRight="252" ratio="0.74950296" folder="true">
+<folder expanded="2" appearance="2">
+<page label="LabelNotFound" content="org.eclipse.help.ui.HelpView"/>
+<page label="LabelNotFound" content="org.eclipse.ui.internal.introview"/>
+<page label="LabelNotFound" content="org.eclipse.ui.cheatsheets.views.CheatSheetView"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" relative="left" relationship="2" ratioLeft="437" ratioRight="834" ratio="0.34382376"/>
+<info part="bottom" relative="org.eclipse.ui.editorss" relationship="4" ratioLeft="349" ratioRight="315" ratio="0.5256024" folder="true">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" expanded="2" appearance="2">
+<page label="Problems" content="org.eclipse.ui.views.ProblemView"/>
+<page label="Javadoc" content="org.eclipse.jdt.ui.JavadocView"/>
+<page label="Declaration" content="org.eclipse.jdt.ui.SourceView"/>
+<page label="Search" content="org.eclipse.search.ui.views.SearchView"/>
+<page label="Console" content="org.eclipse.ui.console.ConsoleView"/>
+<page label="LabelNotFound" content="org.eclipse.ui.views.BookmarkView"/>
+<page label="LabelNotFound" content="org.eclipse.ui.views.ProgressView"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.views.ContentOutline" relative="bottom" relationship="2" ratioLeft="419" ratioRight="419" ratio="0.5"/>
+</mainWindow>
+</layout>
+</perspective>
+<perspective version="0.016" editorAreaVisible="1" fixed="0">
+<descriptor id="org.eclipse.debug.ui.DebugPerspective" label="Debug" class="org.eclipse.debug.internal.ui.DebugPerspectiveFactory"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.openExternalFile"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.jdt.debug.ui.DisplayView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<layout>
+<mainWindow>
+<info part="org.eclipse.debug.internal.ui.NavigatorFolderView" folder="true">
+<folder activePageID="org.eclipse.debug.ui.DebugView" expanded="2" appearance="2">
+<page label="Debug" content="org.eclipse.debug.ui.DebugView"/>
+<page label="LabelNotFound" content="org.eclipse.ui.views.ResourceNavigator"/>
+<page label="LabelNotFound" content="org.eclipse.jdt.ui.PackageExplorer"/>
+<page label="LabelNotFound" content="org.eclipse.jdt.ui.TypeHierarchy"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info part="stickyFolderRight" relative="org.eclipse.debug.internal.ui.NavigatorFolderView" relationship="2" ratioLeft="955" ratioRight="319" ratio="0.74960756" folder="true">
+<folder expanded="2" appearance="2">
+<page label="LabelNotFound" content="org.eclipse.help.ui.HelpView"/>
+<page label="LabelNotFound" content="org.eclipse.ui.internal.introview"/>
+<page label="LabelNotFound" content="org.eclipse.ui.cheatsheets.views.CheatSheetView"/>
+</folder>
+</info>
+<info part="org.eclipse.debug.internal.ui.ConsoleFolderView" relative="org.eclipse.debug.internal.ui.NavigatorFolderView" relationship="4" ratioLeft="500" ratioRight="167" ratio="0.7496252" folder="true">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" expanded="2" appearance="2">
+<page label="Console" content="org.eclipse.ui.console.ConsoleView"/>
+<page label="Tasks" content="org.eclipse.ui.views.TaskList"/>
+<page label="LabelNotFound" content="org.eclipse.ui.views.BookmarkView"/>
+<page label="LabelNotFound" content="org.eclipse.ui.views.PropertySheet"/>
+<page label="LabelNotFound" content="org.eclipse.jdt.debug.ui.DisplayView"/>
+<page label="LabelNotFound" content="org.eclipse.search.SearchResultView"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" relative="org.eclipse.debug.internal.ui.NavigatorFolderView" relationship="4" ratioLeft="225" ratioRight="275" ratio="0.45"/>
+<info part="org.eclipse.debug.internal.ui.OutlineFolderView" relative="org.eclipse.ui.editorss" relationship="2" ratioLeft="955" ratioRight="319" ratio="0.74960756" folder="true">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" expanded="2" appearance="2">
+<page label="Outline" content="org.eclipse.ui.views.ContentOutline"/>
+<page label="LabelNotFound" content="org.eclipse.ant.ui.views.AntView"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.debug.internal.ui.ToolsFolderView" relative="org.eclipse.debug.internal.ui.NavigatorFolderView" relationship="2" ratioLeft="637" ratioRight="637" ratio="0.5" folder="true">
+<folder activePageID="org.eclipse.debug.ui.VariableView" expanded="2" appearance="2">
+<page label="Variables" content="org.eclipse.debug.ui.VariableView"/>
+<page label="Breakpoints" content="org.eclipse.debug.ui.BreakpointView"/>
+<page label="LabelNotFound" content="org.eclipse.debug.ui.ExpressionView"/>
+<page label="LabelNotFound" content="org.eclipse.debug.ui.RegisterView"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<navigationHistory>
+<editors>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TestEJBS/org/cap/TestSecurityServiceEJB.java"/>
+<editor id="org.eclipse.ui.DefaultTextEditor" factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SecurityServiceEJB/org/cap/services/securityservice/auth/AccessControlService.ejb"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SecurityServiceEJB/org/cap/services/securityservice/util/SecurityConstants.java"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SecurityServiceEJB/org/cap/services/securityservice/util/CrossLogixMgr.java"/>
+<editor id="org.eclipse.jdt.ui.ClassFileEditor" factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/weblogic.jar&lt;weblogic.rmi.cluster(ReplicaAwareRemoteRef.class"/>
+<editor id="org.eclipse.jdt.ui.ClassFileEditor" factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/j2sdk1.4.2_05\/jre\/lib\/rt.jar&lt;java.lang(Thread.class"/>
+<editor id="org.eclipse.jdt.ui.ClassFileEditor" factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/SecurityServicesEJB.jar&lt;org.cap.services.securityservice.auth(AccessControlService_jtwrd4_EOImpl_814_WLStub.class"/>
+<editor id="org.eclipse.jdt.ui.ClassFileEditor" factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/AppLibJava.jar&lt;org.cap.services.securityservice.auth(VirtualResources.class"/>
+</editors>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="ReplicaAwareRemoteRef.class" index="4">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="105325" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="Thread.class" index="5">
+<position x="21524" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="Thread.class" index="5">
+<position x="21546" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="Thread.class" index="5">
+<position x="21571" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="Thread.class" index="5">
+<position x="21662" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="Thread.class" index="5">
+<position x="21678" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="ReplicaAwareRemoteRef.class" index="4">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="AccessControlService.ejb" index="1">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="ReplicaAwareRemoteRef.class" index="4">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="AccessControlService_jtwrd4_EOImpl_814_WLStub.class" index="6">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="CrossLogixMgr.java" index="3">
+<position x="2978" y="13" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="SecurityConstants.java" index="2">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1295" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="ReplicaAwareRemoteRef.class" index="4">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position/>
+</item>
+<item historyLabel="VirtualResources.class" index="7">
+<position/>
+</item>
+<item historyLabel="AccessControlService.ejb" index="1">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position/>
+</item>
+<item historyLabel="VirtualResources.class" index="7">
+<position x="4651" y="28" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="105206" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1492" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="2906" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="1492" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="2794" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="2792" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="2974" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="2792" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="47755" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="105206" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="106081" y="0" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="105454" y="12" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="105505" y="3" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="105554" y="13" info="not_deleted"/>
+</item>
+<item historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="105611" y="14" info="not_deleted"/>
+</item>
+<item active="true" historyLabel="TestSecurityServiceEJB.java" index="0">
+<position x="105671" y="17" info="not_deleted"/>
+</item>
+</navigationHistory>
+<stickyState>
+<perspective IMemento.internal.id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective IMemento.internal.id="org.eclipse.debug.ui.DebugPerspective"/>
+</stickyState>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="AccessControlService.ejb" tooltip="SecurityServiceEJB/org/cap/services/securityservice/auth/AccessControlService.ejb">
+<persistable path="/SecurityServiceEJB/org/cap/services/securityservice/auth/AccessControlService.ejb"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="VirtualResources.class" tooltip="org.cap.services.securityservice.auth.VirtualResources">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/AppLibJava.jar&lt;org.cap.services.securityservice.auth(VirtualResources.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ReplicaAwareRemoteRef.class" tooltip="weblogic.rmi.cluster.ReplicaAwareRemoteRef">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/weblogic.jar&lt;weblogic.rmi.cluster(ReplicaAwareRemoteRef.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CrossLogixMgr.java" tooltip="SecurityServiceEJB/org/cap/services/securityservice/util/CrossLogixMgr.java">
+<persistable path="/SecurityServiceEJB/org/cap/services/securityservice/util/CrossLogixMgr.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SecurityConstants.java" tooltip="SecurityServiceEJB/org/cap/services/securityservice/util/SecurityConstants.java">
+<persistable path="/SecurityServiceEJB/org/cap/services/securityservice/util/SecurityConstants.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="VirtualResources.java" tooltip="AppLibJava/AppLibJava/org/cap/services/securityservice/auth/VirtualResources.java">
+<persistable path="/AppLibJava/AppLibJava/org/cap/services/securityservice/auth/VirtualResources.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EducationPrivilege.java" tooltip="AppLibJava/AppLibJava/org/cap/services/securityservice/auth/EducationPrivilege.java">
+<persistable path="/AppLibJava/AppLibJava/org/cap/services/securityservice/auth/EducationPrivilege.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LapPrivilege.java" tooltip="AppLibJava/AppLibJava/org/cap/services/securityservice/auth/LapPrivilege.java">
+<persistable path="/AppLibJava/AppLibJava/org/cap/services/securityservice/auth/LapPrivilege.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IevpsrPrivilege.java" tooltip="AppLibJava/AppLibJava/org/cap/services/securityservice/auth/IevpsrPrivilege.java">
+<persistable path="/AppLibJava/AppLibJava/org/cap/services/securityservice/auth/IevpsrPrivilege.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="AccessControlServiceRemote.class" tooltip="org.cap.services.securityservice.auth.AccessControlServiceRemote">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/SecurityServicesEJB.jar&lt;org.cap.services.securityservice.auth(AccessControlServiceRemote.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="AccessControlServiceHome.class" tooltip="org.cap.services.securityservice.auth.AccessControlServiceHome">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/SecurityServicesEJB.jar&lt;org.cap.services.securityservice.auth(AccessControlServiceHome.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="AccessControlService_jtwrd4_Impl.class" tooltip="org.cap.services.securityservice.auth.AccessControlService_jtwrd4_Impl">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/SecurityServicesEJB.jar&lt;org.cap.services.securityservice.auth(AccessControlService_jtwrd4_Impl.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="AccessControlService_jtwrd4_HomeImpl_WLSkel.class" tooltip="org.cap.services.securityservice.auth.AccessControlService_jtwrd4_HomeImpl_WLSkel">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=TestEJBS/C:\/CAPLibDist\/SecurityServicesEJB.jar&lt;org.cap.services.securityservice.auth(AccessControlService_jtwrd4_HomeImpl_WLSkel.class"/>
+</file>
+</mruList>
+</workbench>

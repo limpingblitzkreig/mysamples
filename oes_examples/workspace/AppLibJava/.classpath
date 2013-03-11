@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry output="wlw_build" kind="src" path="AppLibJava"/>
+	<classpathentry sourcepath="JRE_SRC" kind="var" rootpath="JRE_SRCROOT" path="JRE_LIB"/>
+	<classpathentry kind="con" path="C:/bea/jdk142_05/jre/lib/rt.jar"/>
+	<classpathentry kind="con" path="C:/bea/jdk142_05/jre/lib/jce.jar"/>
+	<classpathentry kind="con" path="C:/bea/jdk142_05/lib/tools.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/portal/lib/wps_system.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/p13n/lib/p13n_system.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/portal/lib/netuix/system/netuix_system.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/knex.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/common/lib/log4j.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/debugging.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/javelin/lib/javelin.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/wlw-lang.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/weblogic.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/wlsqlserver.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/common/eval/pointbase/lib/pbserver44.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/common/eval/pointbase/lib/pbclient44.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/webservices.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/webserviceclient.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/webserviceclient+ssl.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/wli.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/xbean.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/wlxbean.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/xqrl.jar"/>
+	<classpathentry kind="con" path="C:/bea/weblogic81/server/lib/netui/netui-compiler.jar"/>
+	<classpathentry kind="con" path="C:/Users/ssarkar/AppData/Local/Temp/wlw_build"/>
+	<classpathentry kind="lib" path="C:/production_support_web/CAPLibDist/caplog.jar"/>
+	<classpathentry kind="lib" path="C:/production_support_web/CAPLibDist/core.jar"/>
+	<classpathentry kind="lib" path="C:/production_support_web/CAPLibDist/websso.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

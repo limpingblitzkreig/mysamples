@@ -1,0 +1,641 @@
+/**
+ * 
+ */
+package org.cap;
+
+import java.util.Calendar;
+import java.util.Hashtable;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+
+
+import org.cap.services.securityservice.auth.AccessControlServiceRemote;
+import org.cap.services.securityservice.auth.AccessControlServiceHome;
+import org.cap.services.securityservice.auth.VirtualResources;
+
+
+
+/**
+ * @author ssarkar
+ *
+ */
+public class TestSecurityServiceEJB {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	    //JNDI name could be moved to a config file if change is anticipated.
+		String _ADMIN_SERVICE_JNDI = "ejb.AccessControlServiceRemoteHome";
+		AccessControlServiceRemote _accessService = null;
+		try{		
+			if (_accessService == null) { 
+				Context ctx = new InitialContext(createEnvironment());
+				Object admHomeObj = ctx.lookup(_ADMIN_SERVICE_JNDI);
+				AccessControlServiceHome admHome = (AccessControlServiceHome) 
+					PortableRemoteObject.narrow(
+						admHomeObj, AccessControlServiceHome.class);
+				_accessService = admHome.create();
+			}	
+			
+		/*	String[] accessIDs = _accessService.getListUsers(
+					"1544501",
+					VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS);
+			System.out.println(accessIDs);
+		*/
+			
+			/*1003681, 1005041, 1005569, 1012417, 1014196, 1014202, 1014206, 1021380, 1032239, 1035304, 1045289, 1059847, 1059850, 
+			 * 1081028, 1082796, 1091049, 1091348, 1096542, 1097003, 1102286, 1110854, 1114935, 1115403, 1115459, 1115983, 1116089, 1116735, 
+			 * 1122622, 1136358, 1137548, 1138862, 1145014, 1147151, 1151313, 1156234, 1156422, 1159605, 1162510, 1165589, 1166726, 1167919, 
+			 * 1173009, 1173014, 1173296, 1173436, 1173491, 1173609, 1173728, 1173773, 1173789, 1173794, 1173814, 1173824, 1173845, 1173856, 
+			 * 1173858, 1173866, 1173902, 1173913, 1173925, 1173996, 1174017, 1174123, 1174195, 1174345, 1174430, 1174831, 1174987, 1175139, 
+			 * 1175216, 1177484, 1178329, 1178335, 1178509, 1178831, 1178905, 1178985, 1179344, 1179616, 1179630, 1179631, 1179707, 1179869, 
+			 * 1179918, 1179996, 1180186, 1180315, 1180738, 1180923, 1180928, 1180952, 1180977, 1181348, 1181542, 1181546, 1181839, 1182282, 
+			 * 1183989, 1183995, 1184058, 1184072, 1184098, 1184203, 1184318, 1184366, 1184451, 1184483, 1184585, 
+			 * 1184706, 1185977, 1186917, 1187393, 1187621, 1187713, 1192729, 1192849, 1256195, 900704, 905565]
+			 */ 
+			long begintime = Calendar.getInstance().getTimeInMillis();
+			 System.out.println("Begin " + begintime);
+			System.out.println(_accessService.accessAllowed("1014196", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+			org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));	
+			System.out.println(_accessService.accessAllowed("1014196", "1003681", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1005041", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1005569", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1012417", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1014196", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1014202", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1014206", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1021380", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1032239", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1035304", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1045289", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1059847", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1059850", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1081028", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1082796", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1091049", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1091348", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1096542", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1097003", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1102286", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1110854", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1114935", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1115403", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1115459", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1115983", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1116089", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1116735", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1122622", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1136358", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1137548", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1138862", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1145014", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1147151", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1151313", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1156234", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1156422", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1159605", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1162510", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1165589", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1166726", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1167919", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173009", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173014", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173296", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173436", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173491", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173609", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173728", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173773", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173789", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173794", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173814", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173824", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173845", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173856", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173858", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173866", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173902", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173913", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173925", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1173996", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1174017", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1174123", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1174195", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1174345", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1174430", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1174831", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1174987", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1175139", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1175216", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1177484", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1178329", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1178335", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1178509", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1178831", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1178905", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1178985", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1179344", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1179616", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1179630", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1179631", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1179707", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1179869", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1179918", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1179996", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1180186", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1180315", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1180738", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1180923", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1180928", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1180952", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1180977", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1181348", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1181542", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1181546", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1181839", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1182282", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1183989", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1183995", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184058", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184072", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184098", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184203", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184318", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184366", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184451", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184483", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184585", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1184706", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1185977", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1186917", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1187393", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1187621", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1187713", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1192729", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1192849", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "1256195", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "900704", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1014196", "905565", VirtualResources.EDU_PORTAL_OCATP,
+					org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+		System.out.println(_accessService.accessAllowed("1003681", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1005041", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1005569", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1012417", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1014196", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1014202", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1014206", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1021380", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1032239", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1035304", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1045289", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1059847", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1059850", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1081028", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1082796", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1091049", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1091348", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1096542", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1097003", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1102286", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1110854", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1114935", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1115403", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1115459", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1115983", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1116089", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1116735", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1122622", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1136358", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1137548", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1138862", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1145014", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1147151", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1151313", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1156234", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1156422", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1159605", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1162510", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1165589", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1166726", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1167919", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173009", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173014", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173296", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173436", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173491", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173609", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173728", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173773", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173789", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173794", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173814", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173824", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173845", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173856", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173858", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173866", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173902", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173913", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173925", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1173996", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1174017", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1174123", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1174195", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1174345", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1174430", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1174831", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1174987", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1175139", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1175216", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1177484", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1178329", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1178335", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1178509", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1178831", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1178905", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1178985", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1179344", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1179616", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1179630", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1179631", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1179707", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1179869", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1179918", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1179996", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1180186", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1180315", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1180738", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1180923", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1180928", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1180952", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1180977", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1181348", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1181542", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1181546", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1181839", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1182282", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1183989", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1183995", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184058", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184072", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184098", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184203", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184318", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184366", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184451", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184483", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184585", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1184706", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1185977", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1186917", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1187393", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1187621", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1187713", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1192729", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1192849", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("1256195", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("900704", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	System.out.println(_accessService.accessAllowed("905565", "1544501", VirtualResources.EDU_PORTAL_OCATP,
+				org.cap.services.securityservice.auth.EducationPrivilege.OCATP_ACCESS));
+	long endtime = 	 Calendar.getInstance().getTimeInMillis();
+	System.out.println("End " + endtime);	
+	System.out.println("Time take " + (endtime - begintime));
+	
+	
+	/*
+1180001
+1157537
+1005569
+1014189
+1032239
+1180738
+1069904
+1097003
+1081028
+1005041
+1035306
+1059847
+1045289
+1081027
+900704
+1178091
+1014206
+905565
+1091049
+1058461
+1115403
+1069892
+1014918
+1161873
+1194788
+1156422
+1082796
+1173296
+1114935
+1206079
+1147585
+1287640
+1318729
+1198495
+	 */
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+
+			System.out.println("Error getting ejb handle");
+		} 
+
+	}
+	
+	private String getHttpResponse(String oesURLString) {
+        String retString = "";
+        try {
+            StringBuilder sb = new StringBuilder();
+            URL oesURL = new URL(oesURLString);
+            URLConnection yc = oesURL.openConnection();
+            BufferedReader in =
+                new BufferedReader(new InputStreamReader(yc.getInputStream()));
+            String inputLine;
+
+            while ((inputLine = in.readLine()) != null) {
+                sb.append(inputLine);
+            }
+            in.close();
+            retString = sb.toString();
+        } catch (Exception ex) {
+            System.out.println("Error retrieving URL:" + ex.getMessage());
+        }
+        return (retString);
+    }
+
+    /**     
+     * Returns an instance of the JNDI environment for default EJB services.
+     * @return an instance of the JNDI environment for default EJB services.
+     */   
+    public static Hashtable createEnvironment() {
+    	String factory = "weblogic.jndi.WLInitialContextFactory"; 
+        String url = "t3://10.10.1.171:7011";
+        String user ="guest"; 
+       
+        String password ="guest"; 
+
+        Hashtable env = new Hashtable();
+        env.put(Context.INITIAL_CONTEXT_FACTORY, factory);
+        env.put(Context.PROVIDER_URL, url);
+    
+        if (user != null) {
+            env.put(Context.SECURITY_PRINCIPAL, user);
+            if (password == null) {
+                password = "";
+            }
+            env.put(Context.SECURITY_CREDENTIALS, password);
+        }
+        return env;
+    }
+}

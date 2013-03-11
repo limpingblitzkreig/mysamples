@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!-- Build file for application -->
+ 
+<project name="JavaBatchProcessUNIX" default="usage" basedir=".">
+	<property name="debug" value="off"/>
+    <property name="optimize" value="on"/>
+    <property name="nowarn" value="on"/>
+    <property name="deprecation" value="on"/>
+    <property name="build.dest" value="${basedir}/build"/>
+    <property name="build.lib" value="${build.dest}/lib"/>
+    <property name="classes" value="${build.dest}/classes"/>
+    <property name="src.dir" value="${basedir}/JavaBatchProcess"/>
+    <property name="lib" value="${basedir}/lib"/>
+    <property name="java.src.dir" value="${basedir}/JavaBatchProcess/"/>
+
+    <!-- Archive Files for this Project -->
+    <property name="JavaBatchProcessJar" value="JavaBatchProcess.jar"/>
+
+    <!-- Classpath Settings -->
+    <path id="base.classpath">
+        <fileset dir="${basedir}/lib">
+        	<include name="activation.jar"/>
+        	<include name="ifxjdbc.jar"/>
+        	<include name="ldapjdk.jar"/>
+        	<include name="mail.jar"/>
+        	<include name="msbase.jar"/>
+        	<include name="mssqlserver.jar"/>
+        	<include name="msutil.jar"/>
+        	<include name="ojdbc14.jar"/>
+        	
+        	<include name="AppLibJava.jar"/>
+        	<include name="clx_classes.jar"/>
+        	<include name="core.jar"/>
+        	<include name="jconfig.jar"/>
+        	<include name="SecurityServicesEJB.jar"/>
+    		<include name="weblogic.jar"/>
+        </fileset>
+    </path>
+
+    <patternset id="resource.files" >
+        <include name="**/*.pstmt" />
+        <include name="**/*.properties" />
+        <include name="**/*.txt" />
+        <include name="**/*.html" />
+        <include name="**/*.xml" />
+        <include name="**/*.dtd" />
+        <include name="**/*.gif" />
+        <include name="**/*.jpg" />
+        <include name="**/*.js" />
+        <include name="**/mime.types" />
+    </patternset>
+    
+    <!-- ====================================================================== -->
+    <!-- U S A G E I N F O R M A T I O N                                        -->
+    <!-- ====================================================================== -->
+    <target name="usage">    
+        <echo message=""/>
+        <echo message="Opt-In Batch Components build file"/>
+        <echo message="------------------------------------------------------"/>
+        <echo message=""/>
+        <echo message="Available targets are:"/>
+        <echo message=""/>
+        <echo message="build    --> Build all Class Files"/>
+        <echo message="jar      --> Create all required Jar files"/>
+        <echo message="all      --> Clean, build, Jar"/>
+        <echo message="clean    --> Clean"/>
+        <echo message="javadoc  --> Create JavaDoc Documentation"/>
+        <echo message=""/>    
+    </target>
+
+    <!-- ====================================================================== -->
+    <!-- Initialization Task                                                    -->
+    <!-- ====================================================================== -->
+    <target name="init">
+        <tstamp/>
+    </target>
+
+    <!-- ====================================================================== -->
+    <!-- Clean the Build directory in order to do a complete Build              -->
+    <!-- ====================================================================== -->
+    <target name="clean" depends="init">
+        <delete dir="${build.dest}" />    
+    </target>
+    
+    <!-- ====================================================================== -->
+    <!-- C O M P I L E   S O U R C E S   A N D   C O P Y   L I B R A R I E S    -->
+    <!-- ====================================================================== -->
+    <target name="build" depends="init" description="--> compiles the source code">
+        <mkdir dir="${classes}" />
+        <javac srcdir="${java.src.dir}" destdir="${classes}" 
+                debug="${debug}" deprecation="${deprecation}" 
+                optimize="${optimize}" nowarn="${nowarn}" verbose="false">
+        	<classpath refid="base.classpath" />
+        </javac>
+
+        <!-- copy all supporting files to the build area -->
+        <copy todir="${classes}" >
+            <fileset dir="${java.src.dir}" >
+                <patternset refid="resource.files" />
+            </fileset>
+        </copy>
+
+    </target>
+
+    <!-- ====================================================================== -->
+    <!-- C R E A T E   A R C H I V E   F I L E S                                -->
+    <!-- ====================================================================== -->
+    <target name="jar" depends="init" description="--> create archive files">
+        <mkdir dir="${build.lib}" />
+        <jar destfile="${build.lib}/${JavaBatchProcessJar}"
+                basedir="${classes}"
+                >
+        </jar>
+    </target>
+
+    <target name="all" depends="init,clean,build,jar">
+    </target>
+</project>

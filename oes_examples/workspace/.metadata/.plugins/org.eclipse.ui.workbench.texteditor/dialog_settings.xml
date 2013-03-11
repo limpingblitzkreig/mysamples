@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="y" value="221"/>
+		<item key="selection" value="RFENTR_REPORT_APP"/>
+		<item key="wrap" value="false"/>
+		<item key="casesensitive" value="false"/>
+		<item key="x" value="478"/>
+		<list key="findhistory">
+			<item value="RFENTR_REPORT_APP"/>
+			<item value="RFENTR_PORTAL_QPROBES"/>
+			<item value="accessAllowed"/>
+			<item value="allowed"/>
+			<item value="LAP_VIEW_REPORTS"/>
+			<item value="LAP_APPROVE_DATA"/>
+			<item value="admHome"/>
+			<item value="_admService"/>
+		</list>
+		<list key="replacehistory" value="_admService">
+			<item value="_accessService"/>
+			<item value="AccessService"/>
+		</list>
+	</section>
+</section>

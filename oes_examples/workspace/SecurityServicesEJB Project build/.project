@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>SecurityServicesEJB Project build</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>SecurityServicesEJB</name>
+			<type>2</type>
+			<location>C:/temp/Production_support_web/CAPLib/SecurityServicesEJB</location>
+		</link>
+		<link>
+			<name>wlw_build</name>
+			<type>2</type>
+			<location>C:/Users/ssarkar/AppData/Local/Temp/wlw_build</location>
+		</link>
+	</linkedResources>
+</projectDescription>

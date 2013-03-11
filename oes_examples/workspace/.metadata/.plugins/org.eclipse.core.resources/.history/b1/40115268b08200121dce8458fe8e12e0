@@ -1,0 +1,316 @@
+/*
+ * $Workfile:   AblazeLNSync.java  $
+ * $Revision:   1.2  $
+ * $Author:   unair  $
+ * $Date:   Sep 30 2004 13:27:36  $
+ */
+package JavaBatchProcess.org.cap.ablazeldapsync.services;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.StringTokenizer;
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Vector;
+import netscape.ldap.LDAPException;
+import JavaBatchProcess.org.cap.util.CAPMail;
+import JavaBatchProcess.org.cap.util.CAPProperties;
+import JavaBatchProcess.org.cap.util.MaintainLog;
+import JavaBatchProcess.org.cap.util.LDAPFunctions;
+import JavaBatchProcess.org.cap.util.WebAppConnection;
+import JavaBatchProcess.org.cap.util.UserRepInterface;
+import JavaBatchProcess.org.cap.util.SecurityVO;
+import JavaBatchProcess.org.cap.util.UserNotFoundException;
+
+/**
+ * Synchronization mechanism from Ablaze to LDAP.
+ *  Does the following:
+ *  1. Last Name changes in Ablaze synchronized to LDAP
+ *  2. Inactivated user status propogated to LDAP
+ *  3. Dead user status propogated to LDAP
+ *  4. Activated in Ablaze users ignored, as LDAP user activation needs 
+ *     to be performed through the appropriate web process.
+ * @author sdalal
+ * @version $Revision:   1.2  $
+ */
+public class AblazeLNSync
+{
+    public static int System_Error=1;
+    
+    public static Vector v = new Vector();
+    
+    public static void main(String[] args) {
+        java.util.Date dt = new java.util.Date();
+        //Read from the properties file
+        MaintainLog _aLog = MaintainLog.getLogger("AblazeLNSync");
+         
+        try {
+            //Start Processing
+            LDAPFunctions  ur= new LDAPFunctions();
+            Connection conEventDataSync = 
+                    WebAppConnection.getWebAppConnection().getConnection();
+            String getfromEventDataSync=
+                    "SELECT dataSyncID, datasource, datakey, data" +
+                    "  FROM EventDataSync";
+            PreparedStatement pstmtEventDataSync = 
+                    conEventDataSync.prepareStatement(getfromEventDataSync); 
+            pstmtEventDataSync.execute();
+            ResultSet resultSetEventDataSync=pstmtEventDataSync.getResultSet();
+            
+            //Process all the records
+            while ( resultSetEventDataSync.next() ) {
+                boolean processRequest=true;
+                String userID=null;
+                String pid = null;
+                pid = resultSetEventDataSync.getString(3).trim();
+                try {
+                    userID = ur.getUserIDFromPersonID(pid); 
+                } 
+                catch (UserNotFoundException e) {
+                    processRequest=false;
+                }
+                
+                /* the following strings are a possibility
+                   1. USER_STATUS, Inactive
+                   2. USER_STATUS, Active
+                   4. Dead
+                   3. oldLastName,NewLastName
+                   */
+                boolean processUserStatus = false;
+                boolean processDeceasedPerson = false;
+                boolean processLastNameChange = false;
+                if (processRequest) {
+                    StringTokenizer stkn = new StringTokenizer(
+                            resultSetEventDataSync.getString(4),",");
+                    String function = (String) stkn.nextElement();
+                    
+                    //Determine the type of request
+                    if (function.equalsIgnoreCase("USER_STATUS")) {
+                        processUserStatus=true;
+                    } 
+                    else if (function.equalsIgnoreCase("Dead")) {
+                        processDeceasedPerson=true;
+                    }
+                    else {
+                        processLastNameChange=true;
+                    }
+                    
+                    //Now process the appropriate request
+                    if (processUserStatus) {
+                        //Change the status of USER_STATUS_CHANGE
+                        String status = (String) stkn.nextElement();
+                        if (status.equalsIgnoreCase(" Inactive")) {
+                            ur.setUserStatus(userID,
+                                    UserRepInterface.INACTIVE_STATUS);
+                            _aLog.writeAuditLog(dt.toString() + 
+                                    ":Inactivated the user:" + userID +  "\n" );
+                        } 
+                        else {  
+                            if (status.equalsIgnoreCase(" Active")) {
+                                //The user has been added to Ablaze, 
+                                //but might not be present in LDAP
+                                _aLog.writeAuditLog(dt.toString() + 
+                                        ":Could Not Activate the user:" +
+                                        "Ignore since it is an activate " +
+                                        "Request:PersonID:" + pid + "    "  + 
+                                        resultSetEventDataSync.getString(4)  + 
+                                        "\n" );
+                            }  
+                            else {  //Other Status Insert Here      
+                                _aLog.writeErrorLog("\n\n\n\n" + dt.toString() + 
+                                        ":Invalid User Status Received from " +
+                                        "EventDataSync Table:" + status + 
+                                        "\n\n" );
+                                _aLog.writeErrorLog("DataSync ID:" + 
+                                        resultSetEventDataSync.getString(1) + 
+                                        "\n");
+                                _aLog.writeErrorLog("User ID:" + 
+                                        userID  + "\n");
+                                _aLog.writeErrorLog("Person ID:" + 
+                                        pid + "\n");
+                                _aLog.writeErrorLog("Data :" + 
+                                        resultSetEventDataSync.getString(4) + 
+                                        "\n");
+                                _aLog.writeErrorLog("******  Delete this row " +
+                                        "from the EventDataSync table to " +
+                                        "enable further processing  ******  " +
+                                        "\n\n\n\n\n");
+                            }
+                        }
+                    }
+                    if (processLastNameChange) {
+                        //Change the LAST_NAME_CHANGE
+                        SecurityVO sv=ur.getSecurityAnswers(userID);
+                        String newLastName = (String) stkn.nextElement();
+                        System.out.println("Changing the Last Name....");
+                        if (!ur.getLastName(userID)
+                                .equalsIgnoreCase(newLastName)) {
+                            if ( (sv != null) &&  
+                                    (! ur.isAttrsUnique(sv,newLastName))) {
+                                StringBuffer strbf = new StringBuffer();
+                                strbf.append("Cannot change the last name ");
+                                strbf.append("of the following user:\n");
+                                strbf.append("The user: PersonID=" + pid + ","); 
+                                strbf.append("MemberID=");
+                                strbf.append(ur.getMemberID(
+                                        ur.getUserIDFromPersonID(pid))); 
+                                strbf.append("  Old Last Name: ");
+                                strbf.append(ur.getLastName(
+                                        ur.getUserIDFromPersonID(pid)));
+                                strbf.append(",    New LastName=");
+                                strbf.append(newLastName);
+                                strbf.append("\n");
+                                String uid = ur.getUserID(sv,newLastName);
+                                strbf.append("There is another user : ");
+                                strbf.append("PersonID=");
+                                strbf.append(ur.getPersonID(uid));
+                                strbf.append(", MemberID=");
+                                strbf.append(ur.getMemberID(uid));
+                                strbf.append(",    LastName=");
+                                strbf.append(ur.getLastName(uid));
+                                strbf.append("\n");
+                                strbf.append(" who have the same security ");
+                                strbf.append("answers as the previous one.\n");
+                                strbf.append("They may be duplicates. Unable ");
+                                strbf.append("to change the last name for ");
+                                strbf.append("this user as it violates the ");
+                                strbf.append("rule that the combination of ");
+                                strbf.append("the security answers and last ");
+                                strbf.append("name must be unique.\"");
+                                
+                                String subj="\"Error: Last Name Change Error\"";
+                                CAPProperties cp = new CAPProperties();
+                                String emailList = cp.getProperty(
+                                        "AblazeLnSync_EmailList");
+                                StringTokenizer  stkn1  = new StringTokenizer(
+                                        emailList,";");
+                                int numTokens = stkn1.countTokens();
+                                if (numTokens > 0 ) {
+                                    String[] recepients = new String[numTokens];
+                                    for (int counter=0;stkn1.hasMoreElements();
+                                            counter++) {
+                                        recepients[counter] = stkn1.nextToken();
+                                        System.out.println("Adding the user:" + 
+                                                recepients[counter]);
+                                    }
+                                    CAPMail cpmail = new CAPMail();
+                                    cpmail.sendMail(recepients,subj,
+                                            strbf.toString(),
+                                            "LDAPSyncProcess@cap.org");
+                                }
+                                _aLog.writeErrorLog(strbf.toString());
+                                
+                            }  else {
+                            //Change the last name
+                            ur.setLastName(userID,newLastName);
+                            _aLog.writeAuditLog(dt.toString() + 
+                                    ":Changed the Last Name of " + userID + 
+                                    " from " + function + " to " + newLastName +
+                                    "\n" );
+                            }
+                        }
+                    }
+                    
+                    if (processDeceasedPerson) {
+                        //Change the status of user to deceased
+                        ur.setUserStatus(userID,
+                                UserRepInterface.DECEASED_STATUS);
+                        _aLog.writeAuditLog(dt.toString() + 
+                                ":set the user status to Deceased. UserID:" + 
+                                userID +  "\n" );
+                    }
+                } 
+                else {
+                    //User Not Found Condition
+                    StringTokenizer stkn=new StringTokenizer(
+                            resultSetEventDataSync.getString(4),",");
+                    String function = (String) stkn.nextElement();
+                    if (function.equalsIgnoreCase("USER_STATUS")) {
+                        String status = (String) stkn.nextElement();
+                        if (status.equalsIgnoreCase(" Active")) {
+                            _aLog.writeAuditLog(dt.toString() + 
+                                    ":Could Not Find the user:Ignore since " +
+                                    "it is an activate Request:PersonID:" + 
+                                    pid + "    "  + 
+                                    resultSetEventDataSync.getString(4)  + 
+                                    "\n" );
+                        }
+                    } 
+                    else {
+                        _aLog.writeErrorLog(dt.toString() + 
+                                ":Could Not Find the user:PersonID:" + 
+                                pid +  "\n" );
+                        //This happens when users get added to Ablaze 
+                        //without going through  self registration, 
+                        //in this case user would not exist in LDAP.
+                    }
+                }
+                v.add(resultSetEventDataSync.getString(1));
+                    
+            } //End of the process
+            resultSetEventDataSync.close();
+        } 
+        catch (SQLException sqle) {
+            sqle.printStackTrace();
+            _aLog.writeErrorLog("Critical Error: Could not process data from the database. Appears to be a DB connectivity issue\n" );
+            _aLog.writeErrorLog("Critical Error: This error will stop further processing of entries\n" );
+            _aLog.writeErrorLog("Critical Error: Please look at the SQLServer table EventDataSync for further processing\n" );
+            System.exit(System_Error);
+        } 
+        catch (IOException ioe) {
+            ioe.printStackTrace();
+            System.exit(System_Error);
+        } 
+        catch (UserNotFoundException unf) {
+            unf.printStackTrace();
+            _aLog.writeErrorLog(
+                    "Critical Error: Could not find a user in LDAP.\n" );
+            _aLog.writeErrorLog("Critical Error: This error will stop " +
+                    "further processing of entries\n" );
+            _aLog.writeErrorLog("Critical Error: Please look at the " +
+                    "SQLServer table EventDataSync for further processing\n" );
+            System.exit(System_Error);
+        } 
+        catch (LDAPException le) {
+            le.printStackTrace();
+            System.exit(System_Error);
+        } 
+        catch (javax.mail.MessagingException me) {
+            me.printStackTrace();
+            System.exit(System_Error);
+        } 
+        catch (JavaBatchProcess.org.cap.util.MultipleRecordsException mre) {
+            mre.printStackTrace();
+            System.exit(System_Error);
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("System Exception ....");
+            System.exit(System_Error);
+        }
+        
+        try {
+            //delete the records
+            Enumeration enume = v.elements();
+            Connection deleteConnection = 
+                    WebAppConnection.getWebAppConnection().getConnection();
+            while (enume.hasMoreElements()) {
+                //delete these records
+                    String id=(String) enume.nextElement();
+                    String deleteRecord=
+                            "DELETE FROM dbo.EventDataSync " +
+                            "      WHERE dataSyncID=" + id + "\n";
+                    PreparedStatement deleteStatement = 
+                            deleteConnection.prepareStatement(deleteRecord); 
+                    deleteStatement.executeUpdate();
+            }
+            _aLog.closeFiles();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(System_Error);
+        }
+        System.exit(0);
+    }
+}

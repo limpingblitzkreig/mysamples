@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../common-java-build.xml"> ]> 
+
+<project name="AppLibJava" default="build">
+  <property file="../caplib-build.properties" />
+  <property name="output.filename" value="AppLibJava.jar" />
+  <property name="output.dir" value="${caplib.app.dir}/APP-INF/lib" />
+  <property name="project.dir" value="${caplib.app.dir}/AppLibJava" />
+
+  <path id="build.dependencies">
+    <fileset dir="${external.lib.dir}">
+      <include name="commons-beanutils.jar"/>
+      <include name="commons-logging.jar"/>
+      <include name="commons-validator.jar"/>
+      <include name="dfc.jar"/>
+      <include name="redpoint-core.jar"/>
+      <include name="robosuite-api.jar"/>
+      <include name="struts.jar"/>
+    </fileset>
+
+    <fileset dir="${internal.lib.dir}">
+      <include name="caplog.jar"/>
+      <include name="core.jar"/>
+      <include name="websso.jar"/>
+    </fileset>
+  </path>
+
+  &common;
+</project>
+

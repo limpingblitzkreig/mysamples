@@ -1,0 +1,79 @@
+/**
+ * 
+ */
+package org.cap;
+
+import java.rmi.RemoteException;
+import java.util.Hashtable;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.ejb.CreateException;
+import org.cap.services.securityservice.admin.AdminServiceHome;
+import org.cap.services.securityservice.admin.AdminServiceRemote;
+
+
+
+/**
+ * @author ssarkar
+ *
+ */
+public class TestSecurityServiceEJB {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	    //JNDI name could be moved to a config file if change is anticipated.
+		String _ADMIN_SERVICE_JNDI = "ejb.AdminServiceRemoteHome";
+		AdminServiceRemote _admService = null;
+		try{		
+			if (_admService == null) { 
+				Context ctx = new InitialContext(createEnvironment());
+				Object admHomeObj = ctx.lookup(_ADMIN_SERVICE_JNDI);
+				AdminServiceHome admHome = (AdminServiceHome) 
+					PortableRemoteObject.narrow(
+						admHomeObj, AdminServiceHome.class);
+				_admService = admHome.create();
+			}			
+		}
+		catch (RemoteException e) {
+			System.out.println("Error getting ejb handle");
+		}
+	}
+    /**     
+     * Returns an instance of the JNDI environment for default EJB services.
+     * @return an instance of the JNDI environment for default EJB services.
+     */   
+    public static Hashtable createEnvironment() {
+    	String factory = "weblogic.jndi.WLInitialContextFactory"; 
+        String url = ResourceConfigUtil.getValue(
+        		ResourceConfigUtil.CATEGORY_WEBLOGIC_SERVER + "/" +
+        		ResourceConfigUtil.CATEGORY_WLS_CONNECTION, "provider", true); 
+        
+        String user = ResourceConfigUtil.getValue(
+        		ResourceConfigUtil.CATEGORY_WEBLOGIC_SERVER + "/" +
+        		ResourceConfigUtil.CATEGORY_WLS_CONNECTION, "principal", true); 
+       
+        String password = ResourceConfigUtil.getValue(
+        		ResourceConfigUtil.CATEGORY_WEBLOGIC_SERVER + "/" +
+        		ResourceConfigUtil.CATEGORY_WLS_CONNECTION, "credential", true); 
+        
+        
+        Hashtable env = new Hashtable();
+        env.put(Context.INITIAL_CONTEXT_FACTORY, factory);
+        env.put(Context.PROVIDER_URL, url);
+    
+        if (user != null) {
+            env.put(Context.SECURITY_PRINCIPAL, user);
+            if (password == null) {
+                password = "";
+            }
+            env.put(Context.SECURITY_CREDENTIALS, password);
+        }
+        return env;
+    }
+}

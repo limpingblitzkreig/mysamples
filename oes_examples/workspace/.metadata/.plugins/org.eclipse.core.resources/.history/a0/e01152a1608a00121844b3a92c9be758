@@ -1,0 +1,47 @@
+/**
+ * 
+ */
+package org.cap;
+
+import java.rmi.RemoteException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+
+import org.cap.services.securityservice.admin.AdminServiceHome;
+import org.cap.services.securityservice.admin.AdminServiceRemote;
+
+import JavaBatchProcess.org.cap.util.OptInCustomerException;
+
+/**
+ * @author ssarkar
+ *
+ */
+public class TestSecurityServiceEJB {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	    //JNDI name could be moved to a config file if change is anticipated.
+		private static String _ADMIN_SERVICE_JNDI = "ejb.AdminServiceRemoteHome";
+		private static AdminServiceRemote _admService = null;
+		try{		
+			if (_admService == null) { 
+				Context ctx = new InitialContext(createEnvironment());
+				Object admHomeObj = ctx.lookup(_ADMIN_SERVICE_JNDI);
+				AdminServiceHome admHome = (AdminServiceHome) 
+					PortableRemoteObject.narrow(
+						admHomeObj, AdminServiceHome.class);
+				_admService = admHome.create();
+			}			
+		}
+		catch (RemoteException e) {
+			System.out.println("Error getting ejb handle");
+		}
+	}
+
+}

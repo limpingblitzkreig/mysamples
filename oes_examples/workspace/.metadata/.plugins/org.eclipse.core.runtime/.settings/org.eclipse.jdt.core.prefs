@@ -1,0 +1,9 @@
+#Mon Mar 11 17:46:46 GMT 2013
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/j2sdk1.4.2_05/jre/lib/rt.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=C\:/j2sdk1.4.2_05/src.zip
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=c\:/eclipse-SDK-3.1.2-win32/eclipse/plugins/org.junit_3.8.1
+eclipse.preferences.version=1
+org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=*.launch
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=c\:/eclipse-SDK-3.1.2-win32/eclipse
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled

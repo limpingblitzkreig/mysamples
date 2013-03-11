@@ -1,0 +1,75 @@
+/**
+ * 
+ */
+package org.cap;
+
+import java.util.Hashtable;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+
+
+import org.cap.services.securityservice.auth.AccessControlServiceRemote;
+import org.cap.services.securityservice.auth.AccessControlServiceHome;
+
+
+
+/**
+ * @author ssarkar
+ *
+ */
+public class TestSecurityServiceEJB {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	    //JNDI name could be moved to a config file if change is anticipated.
+		String _ADMIN_SERVICE_JNDI = "ejb.AccessControlServiceRemoteHome";
+		AccessControlServiceRemote _accessService = null;
+		try{		
+			if (_accessService == null) { 
+				Context ctx = new InitialContext(createEnvironment());
+				Object admHomeObj = ctx.lookup(_ADMIN_SERVICE_JNDI);
+				AccessControlServiceHome admHome = (AccessControlServiceHome) 
+					PortableRemoteObject.narrow(
+						admHomeObj, AccessControlServiceHome.class);
+				_accessService = admHome.create();
+			}	
+			_accessService.accessAllowed("1005569", "1541001", "/rfentr/portal/qprobes/","result-form-online-activity-log");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+
+			System.out.println("Error getting ejb handle");
+		} 
+
+	}
+    /**     
+     * Returns an instance of the JNDI environment for default EJB services.
+     * @return an instance of the JNDI environment for default EJB services.
+     */   
+    public static Hashtable createEnvironment() {
+    	String factory = "weblogic.jndi.WLInitialContextFactory"; 
+        String url = "t3://10.10.1.171:7011";
+        String user ="guest"; 
+       
+        String password ="guest"; 
+
+        Hashtable env = new Hashtable();
+        env.put(Context.INITIAL_CONTEXT_FACTORY, factory);
+        env.put(Context.PROVIDER_URL, url);
+    
+        if (user != null) {
+            env.put(Context.SECURITY_PRINCIPAL, user);
+            if (password == null) {
+                password = "";
+            }
+            env.put(Context.SECURITY_CREDENTIALS, password);
+        }
+        return env;
+    }
+}
